@@ -247,7 +247,7 @@
     <section class="hero">
         <div class="container">
             <h1>Nosey MEMS Mic v2</h1>
-            <p>Advanced MEMS microphone with improved sensitivity, digital signal processing, and ultra-low noise characteristics for professional audio applications.</p>
+            <p>Open-source Stereo MEMS Microphone Preamp Hardware for the Open-source Nosey project.</p>
         </div>
     </section>
 
@@ -259,26 +259,40 @@
                         <h2>Project Overview</h2>
                         <p><span class="status-badge in-progress">In Development</span></p>
                         
-                        <p>The Nosey MEMS Mic v2 is the next iteration of our high-performance MEMS microphone design, featuring significant improvements in sensitivity, noise reduction, and digital signal processing capabilities.</p>
+
+                        <p>The Nosey MEMS Mic v2 is the first direct upgrade of <a href="https://www.isca-archive.org/interspeech_2025/dewhurst25_interspeech.pdf">Nosey</a>, the open-source hardware for acoustic nasalance, developed by <a href="https://github.com/phoneticslab/nosey">Lancaster University Phonetics lab</a>.</p>
 
                         <h3>Key Features</h3>
                         <ul>
-                            <li>Ultra-low noise floor: -65 dB SPL</li>
-                            <li>High sensitivity: -38 dBV/Pa</li>
-                            <li>Wide frequency response: 20 Hz - 20 kHz</li>
-                            <li>Integrated digital signal processing</li>
-                            <li>I2S digital output interface</li>
-                            <li>Low power consumption: <1mA</li>
+                            <li>Stereo MEMS (micro-electromechanical systems) Microphone</li>
+                            <li>Frequency response: 100 Hz - 10 kHz* to be checked later</li>
+                            <li>Runs on Phantom power +48V, XLR3 jacks</li>
+                            <li>Open-source KiCad 9.0 schematic, PCB and assembly files available</li>
+
                         </ul>
 
-                        <h3>Improvements from v1</h3>
+                        <h3>Circuit overview</h3>
+
                         <ul>
-                            <li>40% reduction in noise floor</li>
-                            <li>Improved frequency response flatness</li>
-                            <li>Enhanced temperature stability</li>
-                            <li>Smaller form factor (3.5mm × 2.65mm)</li>
-                            <li>Better electromagnetic interference (EMI) rejection</li>
+                            <li>Circuit is designed to be simple, yet effective as a nasalance instrument. Can be readapted to function as a stereo microphone with custom power, custom capsule, etc.</li>
+                            <li>Utilizes MEMS microphone to avoid the need for 1G ohm resistors, but also allows fully automatic assembly of the PCB, while maintaining respectable frequency response.</li>
+                            <li>Dual OPA1652 Low Noise amplifiers are used as a differential inverting amplifier. Low current, low noise, and the double inverting topology allows the setting of gain if so needed (make sure they match).</li>
+                            <li>Power supply consists of a bank of capacitors with an 18V Zener diode, followed by a CMOS LDO PJ71k50 which provides the stable 5V supply for the OPA1652, as well as the virtual ground (V/2) using a voltage divider.</li>
                         </ul>
+
+                        <h3>PCB overview</h3>
+
+                        <div>
+                            <img src="img/Nosey_PCB_A_v0.png" alt="Nosey MEMS Mic v2 PCB - Microphone side" width="400">
+                            <img src="img/Nosey_PCB_B_v0.png" alt="Nosey MEMS Mic v2 PCB - XLR3 jack side" width="400">
+                        </div>
+                        <ul>
+                            <li>Small form factor, slides into the new Nosey v2 3D printed model. PETG is recommended for durability and better water resistance.</li>
+                            <li>Two XLR3 jacks run from the side down, staying out of the way and allowing easier cabel managment, while providing ample structural support. The metal shielding connects to the PCB via the XLR3's ground connection in the bottom right screw hole. Optional bypassing of the shield to ground is possible via soldering across JP1.</li>
+                            <li>Open-source Nosey v2 3D model files available at __(well not yet!)__.</li>
+
+                        </ul>
+
                     </section>
 
                     <section id="specifications" class="content-section">
@@ -296,31 +310,31 @@
                             <tbody>
                                 <tr>
                                     <td>Sensitivity</td>
-                                    <td>-38</td>
+                                    <td>-??</td>
                                     <td>dBV/Pa</td>
                                     <td>1 kHz, 1 Pa</td>
                                 </tr>
                                 <tr>
                                     <td>SNR</td>
-                                    <td>65</td>
+                                    <td>??</td>
                                     <td>dB SPL</td>
                                     <td>1 kHz, A-weighted</td>
                                 </tr>
                                 <tr>
                                     <td>THD</td>
-                                    <td><0.1</td>
+                                    <td>??</td>
                                     <td>%</td>
                                     <td>1 kHz, 100 dB SPL</td>
                                 </tr>
                                 <tr>
                                     <td>Supply Voltage</td>
-                                    <td>1.8 - 3.6</td>
+                                    <td>+48</td>
                                     <td>V</td>
-                                    <td>-</td>
+                                    <td>Phantom power</td>
                                 </tr>
                                 <tr>
                                     <td>Current Consumption</td>
-                                    <td>0.8</td>
+                                    <td>like 6mA?</td>
                                     <td>mA</td>
                                     <td>Normal operation</td>
                                 </tr>
@@ -329,7 +343,7 @@
                     </section>
 
                     <section id="documentation" class="content-section">
-                        <h2>Documentation</h2>
+                        <h2>[LOREM IPSO onwards] Documentation</h2>
                         
                         <h3>Getting Started</h3>
                         <p>This section will contain setup instructions, wiring diagrams, and basic usage examples once the project is further along.</p>
