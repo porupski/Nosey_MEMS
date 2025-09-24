@@ -3,237 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nosey MEMS Mic v2 - Project Documentation</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f8fafc;
-        }
-
-        .navbar {
-            background: #2d3748;
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-brand {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #63b3ed;
-        }
-
-        .back-link {
-            background: rgba(255,255,255,0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            text-decoration: none;
-            color: white;
-            transition: background 0.3s ease;
-        }
-
-        .back-link:hover {
-            background: rgba(255,255,255,0.2);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 300;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .main-content {
-            padding: 4rem 0;
-        }
-
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 3rem;
-            margin-top: 2rem;
-        }
-
-        .content-section {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            margin-bottom: 2rem;
-        }
-
-        .content-section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #2d3748;
-            border-bottom: 2px solid #4299e1;
-            padding-bottom: 0.5rem;
-        }
-
-        .content-section h3 {
-            font-size: 1.4rem;
-            margin: 1.5rem 0 1rem 0;
-            color: #4a5568;
-        }
-
-        .sidebar {
-            position: sticky;
-            top: 100px;
-            height: fit-content;
-        }
-
-        .sidebar-section {
-            background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            margin-bottom: 1.5rem;
-        }
-
-        .sidebar-section h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: #2d3748;
-        }
-
-        .sidebar-list {
-            list-style: none;
-        }
-
-        .sidebar-list li {
-            margin-bottom: 0.5rem;
-        }
-
-        .sidebar-list a {
-            color: #4299e1;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .sidebar-list a:hover {
-            color: #3182ce;
-        }
-
-        .spec-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
-        }
-
-        .spec-table th,
-        .spec-table td {
-            border: 1px solid #e2e8f0;
-            padding: 0.75rem;
-            text-align: left;
-        }
-
-        .spec-table th {
-            background: #f7fafc;
-            font-weight: 600;
-        }
-
-        .code-block {
-            background: #2d3748;
-            color: #e2e8f0;
-            padding: 1rem;
-            border-radius: 8px;
-            font-family: 'Monaco', 'Menlo', monospace;
-            overflow-x: auto;
-            margin: 1rem 0;
-        }
-
-        .status-badge {
-            display: inline-block;
-            background: #48bb78;
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 12px;
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-
-        .status-badge.in-progress {
-            background: #ed8936;
-        }
-
-        .status-badge.planned {
-            background: #9f7aea;
-        }
-
-        @media (max-width: 768px) {
-            .content-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-        }
-    </style>
+    <title>Nosey MEMS - Project Documentation</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-brand">Nosey MEMS Mic v2</div>
+            <div class="nav-brand">Nosey MEMS</div>
             <ul class="nav-links">
                 <li><a href="#overview">Overview</a></li>
                 <li><a href="#specifications">Specs</a></li>
@@ -244,12 +20,16 @@
         </div>
     </nav>
 
-    <section class="hero">
-        <div class="container">
-            <h1>Nosey MEMS Mic v2</h1>
-            <p>Open-source Stereo MEMS Microphone Preamp Hardware for the Open-source Nosey project.</p>
-        </div>
-    </section>
+<section class="hero">
+    <div class="container">
+        <h1><b>Nosey MEMS</b></h1>
+        <p class="ipa-subtitle"><i>/ˈnɔɪzi miːmz/</i></p>
+        <p><b>A Fully Open-Soure Nasometer</b></p>
+
+        <p>Open-source Stereo MEMS Microphone Preamp
+            <br>Hardware for the Nosey project.</p> 
+    </div>
+</section>
 
     <main class="main-content">
         <div class="container">
@@ -257,10 +37,20 @@
                 <div class="main-column">
                     <section id="overview" class="content-section">
                         <h2>Project Overview</h2>
-                        <p><span class="status-badge in-progress">In Development</span></p>
+
+                    
+                        <p><span class="status-badge in-progress">In Early Stage of Development</span></p>
                         
 
-                        <p>The Nosey MEMS Mic v2 is the first direct upgrade of <a href="https://www.isca-archive.org/interspeech_2025/dewhurst25_interspeech.pdf">Nosey</a>, the open-source hardware for acoustic nasalance, developed by <a href="https://github.com/phoneticslab/nosey">Lancaster University Phonetics lab</a>.</p>
+                        <p><b>Nosey MEMS</b> is a <b>fully open-source nasometer</b>, a device used to measure the acoustic energy simultaneously from both the oral and nasal cavities produced during speech. This type of study is most commonly studied within the field of <a href="https://en.wikipedia.org/wiki/Articulatory_phonetics">Articulatory Phonetics</a>.</p>
+
+                        <p><b>Nosey MEMS</b> is the first direct upgrade of <a href="https://www.isca-archive.org/interspeech_2025/dewhurst25_interspeech.pdf"><b>Nosey</b></a>, the open-source hardware for acoustic nasalance, developed by <a href="https://github.com/phoneticslab/nosey">Lancaster University Phonetics lab</a>.</p>
+
+                        <p>
+                        <h3>Autors</h3>
+                            <!-- 24 September 2025 -->
+                             <b>Circuit, PCB and webpage design by Ivan Porupski, 2025.</b>
+                        </p>
 
                         <h3>Key Features</h3>
                         <ul>
@@ -268,33 +58,100 @@
                             <li>Frequency response: 100 Hz - 10 kHz* to be checked later</li>
                             <li>Runs on Phantom power +48V, XLR3 jacks</li>
                             <li>Open-source KiCad 9.0 schematic, PCB and assembly files available</li>
-
                         </ul>
+                        <p>* This is a typical MEMS microphone frequency response. Frequency response will always vary from microphone to microphone, even within the same production batch. Calibration is higly suggested.</p>
 
-                        <h3>Circuit overview</h3>
+                        <div>
+                            <img src="img/Nosey_MEMS_mic_Mockup_v1.png" alt="Nosey MEMS Mic v2 PCB model" width="800">
+                        </div>
+
+
+                        <h3>Circuit Overview</h3>
 
                         <ul>
-                            <li>Circuit is designed to be simple, yet effective as a nasalance instrument. Can be readapted to function as a stereo microphone with custom power, custom capsule, etc.</li>
+                            <li>Circuit is designed to be simple, low-cost yet effective as a nasalance instrument. Can be adapted to function as a stereo microphone with custom power, custom capsule, etc.</li>
                             <li>Utilizes MEMS microphone to avoid the need for 1G ohm resistors, but also allows fully automatic assembly of the PCB, while maintaining respectable frequency response.</li>
                             <li>Dual OPA1652 Low Noise amplifiers are used as a differential inverting amplifier. Low current, low noise, and the double inverting topology allows the setting of gain if so needed (make sure they match).</li>
                             <li>Power supply consists of a bank of capacitors with an 18V Zener diode, followed by a CMOS LDO PJ71k50 which provides the stable 5V supply for the OPA1652, as well as the virtual ground (V/2) using a voltage divider.</li>
                         </ul>
 
-                        <h3>PCB overview</h3>
+                        <h3>PCB Overview</h3>
 
-                        <div>
-                            <img src="img/Nosey_PCB_A_v0.png" alt="Nosey MEMS Mic v2 PCB - Microphone side" width="400">
-                            <img src="img/Nosey_PCB_B_v0.png" alt="Nosey MEMS Mic v2 PCB - XLR3 jack side" width="400">
-                        </div>
+
                         <ul>
                             <li>Small form factor, slides into the new Nosey v2 3D printed model. PETG is recommended for durability and better water resistance.</li>
                             <li>Two XLR3 jacks run from the side down, staying out of the way and allowing easier cabel managment, while providing ample structural support. The metal shielding connects to the PCB via the XLR3's ground connection in the bottom right screw hole. Optional bypassing of the shield to ground is possible via soldering across JP1.</li>
+                            <li>The tall electrolytic capacitor's topology was used to create a barrier between the two MEMS microphones, (hopefully) reducing cross-contamination.</li>
                             <li>Open-source Nosey v2 3D model files available at __(well not yet!)__.</li>
+                        </ul>
+
+                        <h3>3D Model (v2) Overview</h3>
+                        <ul>
+                            <li>A new, fully 3D-printable Baffle, Handle and Housing* models.</li>
+                            * Aluminium tape (or equivalent) will be required.
+                            <li>The microphone preamp PCB slides into the new design, followed by two screws on the top corners and four screws for the two XLR3 jacks (make sure to install the screws which are connected to the shield!), securely mounting it to the 3D printed parts.</li>
+                            <li>The Housing requires preparation. To shield the delicate circuitry from electromagnetic interferance,it is necessary to properly shield the microphone preamp. The Housing was designed to be covered in electrically conductive tape on the inside (make sure the overlaping tape makes electrical contact!), finally connecting via the two XLR3's shielding screws to the circuit in large. This step is critical for getting acceptable performance. DETAILED GUIDE TO FOLLOW.</li>
+                            <li>[WORK IN PROGRESS] The PCB hasn't even existed yet! (24sep2025)</li>
 
                         </ul>
 
+                        <div class="disclaimer">
+                            <h4>Safety Disclaimer</h4>
+
+                            <p>All work with these electronics is done entirely at your own discretion and risk. It is your sole responsibility to ensure you possess the necessary skills, knowledge, and safety equipment for working with electrical components. The author and any contributors are not liable for any direct, indirect, incidental, or consequential damages.</p>
+                        </div>
+
                     </section>
 
+
+                    <section id="manufacture" class="content-section">
+                        
+                        <h2>Manufacture and Assembly</h2>
+
+                        <div>
+                        <p>
+                            Inside the GitHub repo you will find a .zip file containing Gerber files necessary for PCB Manufacturing. However, please do note these are specifically made tailored to JLCPCB as this was the manufacturer I used.
+                        </p>
+
+                        <p>
+                            Upon recieving the assembled PCBs, the only soldering that is necessary is to solder on the two XLR3 audio jacks on the sides, pointing downwards.
+                        </p>
+                        </div>
+
+
+                        <div class="disclaimer">
+                            <h4>Manufacturer Recommendation Disclaimer</h4>
+                            <p>The recommended manufacturer is the one the author has used successfully. This is not an endorsement. Please choose a manufacturer based on your own research and needs.</p>
+                        </div>
+                    </section>
+
+
+
+
+
+                    <section id="calibration" class="content-section">
+                        <h2>Calibration</h2>
+                        <p>Given the MEMS microphones come pre-assembled for us, a calibration test is recommended to make sure the device provides accurate measurements.</p>
+
+                        <p>
+                            <a href="https://www.roomeqwizard.com/">Room EQ Wizard</a> (REW) is an open-source software package for acoustical measurements. It is commonly used for measuring acoustic of a room, frequency response of speakers and microphones, but also (pre)amplifier circuits.
+                        </p>
+                        <p>Available for Windows, macOS and Linux.</p>
+                        
+                        <h3>General steps for calibrating Nosey v2:</h3>
+                        <ul>
+                            <li>Connect both Nosey MEMS channels to an audio card (pre-calibrated with REW, Phantom Power +48V on) and verify the microphones are working.</li>
+                            <li>Mount Nosey MEMS about 5cm from a speaker (ideally calibrated studio monitor).</li>
+                            <li>Run REW frequency sweep for each microphone.</li>
+                            <li>Compare the frequency response curves to verify if the microphones match up sufficiently for your reasearch purposes.</li>
+                            <li>Optional: Use these reponse curves to filter your raw audio before nasalance calucations.</li>
+
+                        </ul>
+                    </section>
+
+
+
+<!-- 
                     <section id="specifications" class="content-section">
                         <h2>Technical Specifications</h2>
                         
@@ -362,7 +219,11 @@
 
                         <h3>Mechanical Drawings</h3>
                         <p>CAD files and mechanical specifications will be available for download once finalized.</p>
-                    </section>
+                    </section> 
+                    
+                    -->
+
+
 
                     <section id="downloads" class="content-section">
                         <h2>Downloads</h2>
@@ -370,11 +231,11 @@
                         
                         <h3>Available Files</h3>
                         <ul>
-                            <li>Schematic (Coming Soon)</li>
-                            <li>PCB Layout (Coming Soon)</li>
-                            <li>Arduino Library (Coming Soon)</li>
-                            <li>Datasheet (Coming Soon)</li>
-                            <li>Application Notes (Coming Soon)</li>
+                            <li>[KiCad 9] Schematic (Coming Soon)</li>
+                            <li>[KiCad 9] PCB Layout (Coming Soon)</li>
+                            <li>[JLCPCB] PCB gerber production .zip ready for assembly (MELT and regular)</li>
+                            <li>[STL] 3D printable Baffle, Handle and Casing models (Coming Soon)</li>
+                            <li>Documentation (Coming Soon)</li>
                         </ul>
                     </section>
                 </div>
@@ -384,8 +245,8 @@
                         <h3>Quick Links</h3>
                         <ul class="sidebar-list">
                             <li><a href="#overview">Project Overview</a></li>
-                            <li><a href="#specifications">Specifications</a></li>
-                            <li><a href="#documentation">Documentation</a></li>
+                            <li><a href="#manufacture">Manufacture</a></li>
+                            <li><a href="#calibration">Calibration</a></li>
                             <li><a href="#downloads">Downloads</a></li>
                         </ul>
                     </div>
@@ -398,20 +259,21 @@
                     <div class="sidebar-section">
                         <h3>Related Projects</h3>
                         <ul class="sidebar-list">
+                            <li><a href="https://github.com/phoneticslab/nosey">Nosey (original)</a></li>
                             <!-- <li><a href="#">Nosey MEMS Mic v1</a></li>
                             <li><a href="#">Audio Processing Library</a></li>
                             <li><a href="#">DSP Algorithms</a></li> -->
                         </ul>
                     </div>
-
+<!--
                     <div class="sidebar-section">
                         <h3>Contact & Support</h3>
                         <ul class="sidebar-list">
-                            <!-- <li><a href="#">GitHub Issues</a></li>
+                             <li><a href="#">GitHub Issues</a></li>
                             <li><a href="#">Discussion Forum</a></li>
-                            <li><a href="#">Email Support</a></li> -->
+                            <li><a href="#">Email Support</a></li> 
                         </ul>
-                    </div>
+                    </div>-->
                 </aside>
             </div>
         </div>
