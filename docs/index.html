@@ -12,11 +12,13 @@
             <div class="nav-brand">Nosey MEMS</div>
             <ul class="nav-links">
                 <li><a href="#overview">Overview</a></li>
-                <li><a href="#specifications">Specs</a></li>
-                <li><a href="#documentation">Docs</a></li>
                 <li><a href="#downloads">Downloads</a></li>
+                <li><a href="#manufacture">Manufacture</a></li>
+                <li><a href="#3dprinting">3D_Print</a></li>
+                <li><a href="#calibration">Calibration</a></li>
+                <li><a href="#references">References</a></li>
             </ul>
-            <a href="../" class="back-link">← Back to Profile</a>
+            <a href="https://github.com/porupski/Nosey_MEMS" class="back-link">← Back to GitHub Repo</a>
         </div>
     </nav>
 
@@ -42,24 +44,31 @@
                         <p><span class="status-badge in-progress">In Early Stage of Development</span></p>
                         
 
-                        <p><b>Nosey MEMS</b> is a <b>fully open-source nasometer</b>, a device used to measure the acoustic energy simultaneously from both the oral and nasal cavities produced during speech. This type of study is most commonly studied within the field of <a href="https://en.wikipedia.org/wiki/Articulatory_phonetics">Articulatory Phonetics</a>.</p>
+                        <p><b>Nosey MEMS</b> is a <b>fully open-source nasometer</b>, a device used to measure the acoustic energy simultaneously from both the oral and nasal cavities produced during speech. This type of study is most commonly studied within the field of <a href="https://sheffield.ac.uk/linguistics/home/all-about-linguistics/about-website/branches-linguistics/phonetics/what-do-phoneticians-study/articulatory">Articulatory Phonetics</a>.</p>
 
-                        <p><b>Nosey MEMS</b> is the first direct upgrade of <a href="https://www.isca-archive.org/interspeech_2025/dewhurst25_interspeech.pdf"><b>Nosey</b></a>, the open-source hardware for acoustic nasalance, developed by <a href="https://github.com/phoneticslab/nosey">Lancaster University Phonetics lab</a>.</p>
+                        <p><b>Nosey MEMS</b> is the first direct upgrade of Nosey <a href="#ref2">[1]</a>, the open-source hardware for acoustic nasalance, developed by <a href="https://github.com/phoneticslab/nosey">Lancaster University Phonetics lab</a>.</p>
 
                         <p>
-                        <h3>Autors</h3>
+                        <h3>Authors</h3>
                             <!-- 24 September 2025 -->
                              <b>Circuit, PCB and webpage design by Ivan Porupski, 2025.</b>
                         </p>
 
                         <h3>Key Features</h3>
                         <ul>
-                            <li>Stereo MEMS (micro-electromechanical systems) Microphone</li>
-                            <li>Frequency response: 100 Hz - 10 kHz* to be checked later</li>
-                            <li>Runs on Phantom power +48V, XLR3 jacks</li>
-                            <li>Open-source KiCad 9.0 schematic, PCB and assembly files available</li>
+                            <li>Open source hardware</li>
+                            <li>Dual MEMS (micro-electromechanical systems) microphone system using NA-FFA381-A10-1 sensors</li>
+                            <li>Frequency response: 100 Hz - 10 kHz* with flat response 20 Hz - 3 kHz**</li>
+                            <li>Low-noise dual OPA1652 amplifiers in differential configuration</li>
+                            <li>Powered by standard +48V phantom power via two XLR3 jacks</li>
+                            <li>Compact PCB design fits new Nosey v2 3D-printed housing (PETG recommended)</li>
+                            <li>Optional 18V/5V power configuration via jumper settings</li>
+                            <li>Open-source KiCad 9.0 schematic, PCB, and assembly files available</li>
                         </ul>
-                        <p>* This is a typical MEMS microphone frequency response. Frequency response will always vary from microphone to microphone, even within the same production batch. Calibration is higly suggested.</p>
+                        <ol style="list-style-type: none; padding-left: 0; margin-top: 0.5em;">
+                            <li>* This is a typical MEMS microphone frequency response. Frequency response will always vary from microphone to microphone, even within the same production batch. Calibration is highly suggested.</li>
+                            <li>** The NA-FFA381-A10-1 used has a flat frequency response between 20 Hz and 3 kHz, with increased sensitivity at higher frequencies.</li>
+                        </ol>
 
                         <div>
                             <img src="img/Nosey_MEMS_mic_Mockup_v1.png" alt="Nosey MEMS Mic v2 PCB model" width="800">
@@ -69,29 +78,56 @@
                         <h3>Circuit Overview</h3>
 
                         <ul>
-                            <li>Circuit is designed to be simple, low-cost yet effective as a nasalance instrument. Can be adapted to function as a stereo microphone with custom power, custom capsule, etc.</li>
-                            <li>Utilizes MEMS microphone to avoid the need for 1G ohm resistors, but also allows fully automatic assembly of the PCB, while maintaining respectable frequency response.</li>
-                            <li>Dual OPA1652 Low Noise amplifiers are used as a differential inverting amplifier. Low current, low noise, and the double inverting topology allows the setting of gain if so needed (make sure they match).</li>
-                            <li>Power supply consists of a bank of capacitors with an 18V Zener diode, followed by a CMOS LDO PJ71k50 which provides the stable 5V supply for the OPA1652, as well as the virtual ground (V/2) using a voltage divider.</li>
+                            <li>Circuit is designed to be simple, low-cost yet effective as a nasalance instrument. </li>
+
+                            <li>The amplifier circuit was inspired by 
+                                <a href="#ref2">[2]</a>, 
+                                <a href="#ref3">[3]</a>, 
+                                <a href="#ref4">[4]</a>.
+                            </li>
+
+                            <li>Adopts a MEMS microphone instead of a traditional condenser, removing the need for a 1 GΩ input bias resistor—simplifying PCB manufacturing and still achieving respectable audio bandwidth.</li>
+
+                            <li>The NA-FFA381-A10-1 is a high SNR, small package, single-ended output top port analog MEMS microphone, consists of a MEMS sensor and a low noise level ASIC.</li>
+
+                            <li>Dual OPA1652 low-noise amplifiers are employed in a differential configuration: one channel as a unity-gain non-inverting stage for the hot signal, the other as a unity-gain inverting stage for the cold. This topology leverages the OPA1652’s low current consumption and excellent noise performance to provide a high-fidelity, fully balanced input stage.</li>
+
+
+                            <li>Power supply consists of a bank of capacitors with an 18V Zener diode with filtering as the supply for the OPA1652, employing virtual ground (V/2) using a voltage divider. The power supply is passed through the LDO PJ71k30 to provide a stable 3V supply for the MEMS microphone.</li>
+
                         </ul>
+
 
                         <h3>PCB Overview</h3>
 
-
                         <ul>
-                            <li>Small form factor, slides into the new Nosey v2 3D printed model. PETG is recommended for durability and better water resistance.</li>
-                            <li>Two XLR3 jacks run from the side down, staying out of the way and allowing easier cabel managment, while providing ample structural support. The metal shielding connects to the PCB via the XLR3's ground connection in the bottom right screw hole. Optional bypassing of the shield to ground is possible via soldering across JP1.</li>
+                            <li>Small form factor, slides into the new Nosey v2 3D printed model.</li>
+
+                            <li>Two XLR3 jacks run from the side down, staying out of the way and allowing easier cabel managment, while providing ample structural support.</li>
+
+                            <li>The metal shielding connects to the PCB via the XLR3's ground connection in the bottom right screw hole and via the PCB's two mounting points. See <a href="#3dprinting">Housing Preparations</a>.</li>
+
                             <li>The tall electrolytic capacitor's topology was used to create a barrier between the two MEMS microphones, (hopefully) reducing cross-contamination.</li>
-                            <li>Open-source Nosey v2 3D model files available at __(well not yet!)__.</li>
+
+                            <li>QR code linking to this site for easy access to documentation.</li>
+
+                            <li>Convenient Test Pads TP1-2 for audio signals and TP3-6 for power supply.</li>
+
+                            <li>Optional shorting of Shielding to Ground by jumping JP1.</li>
+
+                            <li>Optional switching from 18V power to 5V power setup by jumping JP2 and JP3. Default is 18V.</li>
                         </ul>
 
                         <h3>3D Model (v2) Overview</h3>
                         <ul>
-                            <li>A new, fully 3D-printable Baffle, Handle and Housing* models.</li>
-                            * Aluminium tape (or equivalent) will be required.
-                            <li>The microphone preamp PCB slides into the new design, followed by two screws on the top corners and four screws for the two XLR3 jacks (make sure to install the screws which are connected to the shield!), securely mounting it to the 3D printed parts.</li>
-                            <li>The Housing requires preparation. To shield the delicate circuitry from electromagnetic interferance,it is necessary to properly shield the microphone preamp. The Housing was designed to be covered in electrically conductive tape on the inside (make sure the overlaping tape makes electrical contact!), finally connecting via the two XLR3's shielding screws to the circuit in large. This step is critical for getting acceptable performance. DETAILED GUIDE TO FOLLOW.</li>
-                            <li>[WORK IN PROGRESS] The PCB hasn't even existed yet! (24sep2025)</li>
+                            <li>A new, fully 3D-printable Baffle, Handle and Housing models.</li>
+
+                            <li>The microphone preamp PCB slides into the new design, followed by two screws on the top corners and four screws for the two XLR3 jacks, securely mounting it to the 3D printed parts.</li>
+
+                            <li> Bottom camera-stand mount(?).</li>
+
+                            <li>Open-source Nosey MEMS 3D model files COMING SOON.</li>
+                            <!-- <li>[WORK IN PROGRESS] The PCB hasn't even existed yet! (24sep2025)</li> -->
 
                         </ul>
 
@@ -104,13 +140,29 @@
                     </section>
 
 
+                    <section id="downloads" class="content-section">
+                        <h2>Downloads</h2>
+                        <p>Project files, documentation, and resources will be available here as development progresses.</p>
+                        
+                        <h3>Available Files</h3>
+                        <p>NOTE: while a .7z zip file is currently available in the repo, it is password protected as the project is still not ready for public release.</p>
+                        <ul>
+                            <li>[KiCad 9] Schematic (Coming Soon)</li>
+                            <li>[KiCad 9] PCB Layout (Coming Soon)</li>
+                            <li>[JLCPCB] PCB gerber production .zip ready for assembly (with Rounded Tracks!) (Coming Soon)</li>
+                            <li>[STL] 3D printable Baffle, Handle and Casing models (Coming Later)</li>
+                            <li>Documentation (This page)</li>
+                        </ul>
+                    </section>
+
+
                     <section id="manufacture" class="content-section">
                         
                         <h2>Manufacture and Assembly</h2>
 
                         <div>
                         <p>
-                            Inside the GitHub repo you will find a .zip file containing Gerber files necessary for PCB Manufacturing. However, please do note these are specifically tailor-made to JLCPCB as this was the manufacturer I used.
+                            After quality control, inside the GitHub repo there will be a .7z file available for PCB assembly manufacturing (currently, only specifically for JLCPCB)
                         </p>
 
                         <p>
@@ -126,7 +178,22 @@
                     </section>
 
 
+                    <section id="3dprinting" class="content-section">
+                        
+                        <h2>3D Printing</h2>
 
+                        <div>
+                            <p>A new version of the Nosey 3D-printable models will be available, tailored to accept the assembled Nosey MEMS PCB.</p>
+
+                            <p>As the 3D models develop, printing settings will be published here, along with any other notes and/or suggestions.</p>
+
+                            <p>PETG is recommended for durability and better water resistance.</p>
+
+                            <p>The Housing requires preparation. To shield the delicate circuitry from electromagnetic interferance, it is necessary to properly shield the microphone preamp. The Housing was designed to be covered in electrically conductive (aluminium or copper) tape on the inside (make sure the overlaping tape makes electrical contact!), finally connecting via the two XLR3's shielding screws to the circuit in large. This step is critical for getting acceptable performance. DETAILED GUIDE TO FOLLOW.</p>
+
+                        </div>
+
+                    </section>
 
 
                     <section id="calibration" class="content-section">
@@ -224,46 +291,49 @@
                     -->
 
 
+                    <section id="references" class="content-section">
+                        <div>
+                            <h2>References</h2>
+                            <ol style="list-style: none; padding-left: 0;">
+                                <li id="ref1" style="margin-bottom: 0.5em;">[1] Dewhurst, M., Collins, J., Lo, J. J., Alderton, R., & Kirkham, S. (2025). Nosey: Open-source hardware for acoustic nasalance. arXiv preprint <a href="https://arxiv.org/pdf/2505.23339">arXiv:2505.23339</a>. <a href="https://www.isca-archive.org/interspeech_2025/dewhurst25_interspeech.pdf"><b>Nosey InterSpeech2025 Paper [PDF]</b></a></li>
+                                <li id="ref2" style="margin-bottom: 0.5em;">[2] Self, D. (2023). Small signal audio design. Focal Press.</li>
+                                <li id="ref3" style="margin-bottom: 0.5em;">[3] DJJules' Instructable <a href="https://www.instructables.com/True-Condenser-OPA-Mics/">True Condenser OPA Mics</a></li>
+                                <li id="ref4" style="margin-bottom: 0.5em;">[4] Texas Instruments: <a href="https://www.ti.com/lit/an/snoa621c/snoa621c.pdf">An Applications Guide for Op Amps</a></li>
+                            </ol>
 
-                    <section id="downloads" class="content-section">
-                        <h2>Downloads</h2>
-                        <p>Project files, documentation, and resources will be available here as development progresses.</p>
-                        
-                        <h3>Available Files</h3>
-                        <p>NOTE: while a zip file is currently available in the repo, it is password protected as the project is still not ready for public release.</p>
-                        <ul>
-                            <li>[KiCad 9] Schematic (Coming Soon)</li>
-                            <li>[KiCad 9] PCB Layout (Coming Soon)</li>
-                            <li>[JLCPCB] PCB gerber production .zip ready for assembly (MELT and regular) (Coming Soon)</li>
-                            <li>[STL] 3D printable Baffle, Handle and Casing models (Coming Later)</li>
-                            <li>Documentation (This page)</li>
-                        </ul>
+                            <p>A lot about microphone circuits can be found on <a href="https://groups.io/g/MicBuilders/">groups.io/g/MicBuilders/</a>.</p>
+                        </div>
                     </section>
+
                 </div>
+
+
 
                 <aside class="sidebar">
                     <div class="sidebar-section">
                         <h3>Quick Links</h3>
                         <ul class="sidebar-list">
-                            <li><a href="#overview">Project Overview</a></li>
-                            <li><a href="#manufacture">Manufacture</a></li>
-                            <li><a href="#calibration">Calibration</a></li>
+                            <li><a href="#overview">Overview</a></li>
                             <li><a href="#downloads">Downloads</a></li>
+                            <li><a href="#manufacture">Manufacture</a></li>
+                            <li><a href="#3dprinting">3D Print</a></li>
+                            <li><a href="#calibration">Calibration</a></li>
+                            <li><a href="#references">References</a></li>
                         </ul>
                     </div>
 
+
                     <div class="sidebar-section">
                         <h3>Project Status</h3>
-                        <p><strong>Current Phase:</strong> Infancy</p>
+                        <p><strong>Current Phase:</strong> Toddler</p>
                     </div>
 
                     <div class="sidebar-section">
                         <h3>Related Projects</h3>
                         <ul class="sidebar-list">
-                            <li><a href="https://github.com/phoneticslab/nosey">Nosey (original)</a></li>
-                            <!-- <li><a href="#">Nosey MEMS Mic v1</a></li>
-                            <li><a href="#">Audio Processing Library</a></li>
-                            <li><a href="#">DSP Algorithms</a></li> -->
+                            <li><a href="https://github.com/phoneticslab/nosey">GitHub Nosey (original) Repository</a></li>
+                            <li><a href="https://github.com/porupski/Nosey_MEMS">GitHub Nosey MEMS Repository</a></li>
+                            <!-- <li><a href="#">Audio Processing Library</a></li> -->
                         </ul>
                     </div>
 <!--
@@ -274,7 +344,8 @@
                             <li><a href="#">Discussion Forum</a></li>
                             <li><a href="#">Email Support</a></li> 
                         </ul>
-                    </div>-->
+                        </div>
+-->
                 </aside>
             </div>
         </div>
