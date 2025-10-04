@@ -12,6 +12,8 @@ Nosey MEMS includes a fully open-source **KiCad9 schematic and PCB**, along with
 
 It is specifically designed for **measuring nasalance**, but the schematic and/or PCB can be edited to fit any desired function.
 
+Github Page: [porupski.github.io/Nosey_MEMS/](https://porupski.github.io/Nosey_MEMS/)
+
 ---
 
 ***Still under heavy development.***
