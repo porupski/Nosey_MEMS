@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manufacturing Guide - Nosey MEMS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">Nosey MEMS</div>
+            <ul class="nav-links">
+                <li><a href="index.html#overview">Overview</a></li>
+                <li><a href="index.html#downloads">Downloads</a></li>
+                <li><a href="manufacture.html">Manufacture</a></li>
+                <li><a href="index.html#3dprinting">3D_Print</a></li>
+                <li><a href="index.html#calibration">Calibration</a></li>
+                <li><a href="index.html#references">References</a></li>
+            </ul>
+            <a href="https://porupski.github.io/Nosey_MEMS/" class="back-link">Main Page</a>            
+            <a href="https://github.com/porupski/Nosey_MEMS" class="back-link">GitHub Repo</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1><b>Manufacturing Guide</b></h1>
+            <p>Step-by-step instructions for building your Nosey MEMS Nasometer</p>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="content-grid">
+                <div class="main-column">
+                    <section id="starting-off" class="content-section">
+                        <h2>Starting off right</h2>
+                        <p>This guide will walk you through the complete manufacturing process for the Nosey MEMS Nasometer, from ordering PCBs to final assembly and testing.</p>
+
+                        <p>Currently, the full PCB manufacturing and assembly has only been tried via JLCPCB. All present information is for their specific ordering steps. If you are using a different manufacturer (or even this one at a later date), please adjust accordingly!</p>
+
+                        <p>All the files required for manufacture will be available at the GitHub repo after quality control.</p>
+
+                        <p>Nosey MEMS is designed to be manufactured as simply, as easily, and as cheaply as possible.</p> 
+                        <ul>
+                            <li>The PCB is less than 10x10 cm size, keeping the PCB manufacturing cost low as well as the final device footprint.</li>
+                            <li>Assembly is only done on the Top layer, simplifying the process.</li>
+                            <li>All components, excluding the XLR3 audio jacks, are assembled for us, minimizing post-assembly additional work.</li>
+                            <li>Automatic assembly allows us to pick smaller part packages, lowering the parts cost and allowing for a smaller footprint, albeit with a possible increase in difficulty for manual rework.</li>
+                            <li>The use of MEMS microphones allows us to circumvent a lot of obstacles in microphone design and manufacture—from sourcing parts to soldering—while keeping the cost low at an acceptable frequency range.</li>
+                        </ul>
+                        
+                        <h3>Getting the Production Files</h3>
+                        <p>Go to the <a href="https://github.com/porupski/Nosey_MEMS">GitHub Repository</a> page and download the "production" .7z file. Inside there is a .zip file containing the PCB Gerber files, the bom.csv file containing the Bill of Materials, and the positions.csv file containing the component placements. All three are critical for manufacture.</p>
+
+                    </section>
+
+                    <section id="process" class="content-section">
+                        <h2>The Process</h2>
+                        <p>Step by step.</p>
+                        
+                        <h3 id="pcb-fabrication">PCB Fabrication</h3>
+                        <p>Upload the .zip Gerber files. Choose fabrication options to your liking.</p>
+
+                        <h3 id="bill-of-materials">Bill of Materials</h3>
+                        <p>This is the list of the chosen components for the first assembly test run:</p>
+                         <table class="spec-table">
+                            <thead>
+                                <tr>
+                                    <th>Component</th>
+                                    <th>Designator</th>
+                                    <th>Footprint</th>
+                                    <th>JLCPCB Part #</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>PJ71K30SC</td>
+                                    <td>U3</td>
+                                    <td>SOT-23</td>
+                                    <td>C411738</td>
+                                </tr>
+                                <tr>
+                                    <td>10nF</td>
+                                    <td>C15</td>
+                                    <td>0805</td>
+                                    <td>C1710</td>
+                                </tr>
+                                <tr>
+                                    <td>NA-FFA381-A10-1</td>
+                                    <td>MK1, MK2</td>
+                                    <td>2.75x1.85x1.0mm Top Port</td>
+                                    <td>C50275774</td>
+                                </tr>
+                                <tr>
+                                    <td>10uF</td>
+                                    <td>C16, C17, C19</td>
+                                    <td>0805</td>
+                                    <td>C15850</td>
+                                </tr>
+                                <tr>
+                                    <td>1SMA4746A</td>
+                                    <td>D3</td>
+                                    <td>D_SMA</td>
+                                    <td>C330245</td>
+                                </tr>
+                                <tr>
+                                    <td>2.2uF</td>
+                                    <td>C1, C11, C12, C14, C6</td>
+                                    <td>0805</td>
+                                    <td>C377773</td>
+                                </tr>
+                                <tr>
+                                    <td>3k</td>
+                                    <td>R10, R2, R3, R9</td>
+                                    <td>0805</td>
+                                    <td>C17661</td>
+                                </tr>
+                                <tr>
+                                    <td>1N4148</td>
+                                    <td>D1, D2, D4</td>
+                                    <td>D_SOD-323</td>
+                                    <td>C2128</td>
+                                </tr>
+                                <tr>
+                                    <td>OPA1652</td>
+                                    <td>U1, U2</td>
+                                    <td>SOIC-8_3.9x4.9mm_P1.27mm</td>
+                                    <td>C30025</td>
+                                </tr>
+                                <tr>
+                                    <td>470R</td>
+                                    <td>R15</td>
+                                    <td>0805</td>
+                                    <td>C17710</td>
+                                </tr>
+                                <tr>
+                                    <td>47uF</td>
+                                    <td>C13, C18, C2, C3, C7, C8</td>
+                                    <td>CP_Elec_6.3x7.7</td>
+                                    <td>C2887275</td>
+                                </tr>
+                                <tr>
+                                    <td>22nF</td>
+                                    <td>C10, C4, C5, C9</td>
+                                    <td>0805</td>
+                                    <td>C1729</td>
+                                </tr>
+                                <tr>
+                                    <td>47R</td>
+                                    <td>R13, R14, R6, R7</td>
+                                    <td>0805</td>
+                                    <td>C17714</td>
+                                </tr>
+                                <tr>
+                                    <td>15k</td>
+                                    <td>R1, R11, R12, R16, R17, R4, R5, R8</td>
+                                    <td>0805</td>
+                                    <td>C17475</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3 id="assembly">Assembly Instructions</h3>
+                        <p>After confirming the BOM file, the component placements need to be verified next. Sometimes, the orientation of components may be wrong. Carefully inspect and make sure all polarities are correct. The assembly placement for the first run is shown here:</p>
+
+                        <div>
+                            <img src="img/Nosey_MEMS_PCBA-first-ed_oct2025.png" alt="Nosey MEMS PCB top assembly component placements" width="800">
+                        </div>
+
+                        <div class="disclaimer">
+                            <h4>NOTE:</h4>
+                            <p>For some reason, the manufacturer does not have the model for the MEMS microphones (MK1, MK2). Hopefully the manufacturer will take care of this, otherwise a soldering station and advanced SMD soldering skills may be needed.</p>
+                        </div>
+
+                        <div class="disclaimer">
+                            <h4>WARNING!</h4>
+                            <p>Please note that the Zener diode D3 is placed WRONG. Hopefully the manufacturer will pick up on this, otherwise manual rework will be needed.</p>
+                        </div>
+
+                    </section>
+
+                    <section id="testing" class="content-section">
+                        <h2>Testing & Verification</h2>
+                        <p>How to test your completed device to ensure proper functionality.</p>
+                    </section>
+
+                    <section id="troubleshooting" class="content-section">
+                        <h2>Troubleshooting</h2>
+                        <p>Common issues and how to resolve them.</p>
+                    </section>
+                </div>
+
+                <aside class="sidebar">
+                    <div class="sidebar-section">
+                        <h3>Quick Links</h3>
+                        <ul class="sidebar-list">
+                            <li><a href="#starting-off">Starting off right</a></li>
+                            <li><a href="#pcb-fabrication">PCB Fabrication</a></li>
+                            <li><a href="#bill-of-materials">Bill of Materials</a></li>
+                            <li><a href="#assembly">Assembly Instructions</a></li>
+                            <li><a href="#testing">Testing & Verification</a></li>
+                            <li><a href="#troubleshooting">Troubleshooting</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h3>Resources</h3>
+                        <ul class="sidebar-list">
+                            <li><a href="index.html#downloads">Download Files</a></li>
+                            <li><a href="index.html">Back to Main Page</a></li>
+                            <li><a href="https://github.com/porupski/Nosey_MEMS">GitHub Repository</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Nosey MEMS Project. Open Source Hardware.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -310,3 +310,14 @@ body {
         position: static;
     }
 }
+
+
+
+section[id] {
+    scroll-margin-top: 80px; /* Adjust this value based on your navbar height */
+}
+
+/* If you also have other anchor targets with IDs, apply to them too */
+h1[id], h2[id], h3[id] {
+    scroll-margin-top: 80px;
+}
