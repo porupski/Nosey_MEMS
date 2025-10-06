@@ -5,46 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nosey MEMS - Project Documentation</title>
     <link rel="stylesheet" href="style.css">
+    <script src="shared/load-components.js"></script>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-brand">Nosey MEMS</div>
-            <ul class="nav-links">
-                <li><a href="#overview">Overview</a></li>
-                <li><a href="#downloads">Downloads</a></li>
-                <li><a href="#manufacture">Manufacture</a></li>
-                <li><a href="#3dprinting">3D_Print</a></li>
-                <li><a href="#calibration">Calibration</a></li>
-                <li><a href="#references">References</a></li>
-            </ul>
-            <a href="https://porupski.github.io/Nosey_MEMS/" class="back-link">Main Page</a>            
-            <a href="https://github.com/porupski/Nosey_MEMS" class="back-link">GitHub Repo</a>
+    <!-- Navigation placeholder -->
+    <div id="navbar-placeholder" style="position: sticky; top: 0; z-index: 100;"></div>
+
+    <section id="hero" class="hero">
+        <div class="container">
+            <h1><b>Nosey MEMS</b></h1>
+            <p class="ipa-subtitle"><i>/ˈnɔɪzi miːmz/</i></p>
+            <p><b>A Fully Open-Source Nasometer</b></p>
+
+            <p>Open-source Stereo MEMS Microphone Preamp
+                <br>Hardware for the Nosey project.</p> 
         </div>
-    </nav>
-
-<section class="hero">
-    <div class="container">
-        <h1><b>Nosey MEMS</b></h1>
-        <p class="ipa-subtitle"><i>/ˈnɔɪzi miːmz/</i></p>
-        <p><b>A Fully Open-Source Nasometer</b></p>
-
-        <p>Open-source Stereo MEMS Microphone Preamp
-            <br>Hardware for the Nosey project.</p> 
-    </div>
-</section>
+    </section>
 
     <main class="main-content">
         <div class="container">
             <div class="content-grid">
                 <div class="main-column">
+                    
                     <section id="overview" class="content-section">
                         <h2>Project Overview</h2>
 
-                    
                         <p><span class="status-badge in-progress">In Early Stage of Development</span></p>
                         
-
                         <p><b>Nosey MEMS</b> is a <b>fully open-source nasometer</b>, a device used to measure the acoustic energy simultaneously from both the oral and nasal cavities produced during speech. This type of study is most commonly studied within the field of <a href="https://sheffield.ac.uk/linguistics/home/all-about-linguistics/about-website/branches-linguistics/phonetics/what-do-phoneticians-study/articulatory">Articulatory Phonetics</a>.</p>
 
                         <p><b>Nosey MEMS</b> is the first direct upgrade of Nosey <a href="#ref2">[1]</a>, the open-source hardware for acoustic nasalance, developed by <a href="https://github.com/phoneticslab/nosey">Lancaster University Phonetics lab</a>.</p>
@@ -161,8 +148,10 @@
                     <section id="manufacture" class="content-section">
                         
                         <h2>Manufacture and Assembly</h2>
+                        <h3 class="guide-link">
+                        <a href="manufacture.html#hero">[Manufacturing Guide →]</a>
+                        </h3>
 
-                        <a href="manufacture.html"><h3>[Go to Manufacturing Guide]</h3></a>
 
                         <div>
                         <p>
@@ -188,6 +177,10 @@
                         
                         <h2>3D Printing</h2>
 
+                        <h3 class="guide-link">
+                        <a href="3dprinting.html#hero">[3D Printing Guide →]</a>
+                        </h3>
+
                         <div>
                             <p>A new version of the Nosey-MEMS 3D-printable models will be available, tailored to accept the assembled Nosey MEMS PCB.</p>
 
@@ -204,6 +197,11 @@
 
                     <section id="calibration" class="content-section">
                         <h2>Calibration</h2>
+
+                        <h3 class="guide-link">
+                        <a href="calibration.html#hero">[Calibration Guide →]</a>
+                        </h3>
+
                         <p>Given the MEMS microphones come pre-assembled for us, a calibration test is recommended to make sure the device provides accurate measurements.</p>
 
                         <p>
@@ -313,54 +311,15 @@
 
                 </div>
 
+                <!-- Sidebar placeholder -->
+                <aside class="sidebar" id="sidebar-placeholder"></aside>
 
-
-                <aside class="sidebar">
-                    <div class="sidebar-section">
-                        <h3>Quick Links</h3>
-                        <ul class="sidebar-list">
-                            <li><a href="#overview">Overview</a></li>
-                            <li><a href="#downloads">Downloads</a></li>
-                            <li><a href="#manufacture">Manufacture</a></li>
-                            <li><a href="#3dprinting">3D Print</a></li>
-                            <li><a href="#calibration">Calibration</a></li>
-                            <li><a href="#references">References</a></li>
-                        </ul>
-                    </div>
-
-
-                    <div class="sidebar-section">
-                        <h3>Project Status</h3>
-                        <p><strong>Current Phase:</strong> Toddler</p>
-                        <p><strong>Sep-Oct2025:</strong> Infancy</p>
-                    </div>
-
-                    <div class="sidebar-section">
-                        <h3>Repositories</h3>
-                        <ul class="sidebar-list">
-                            <li><a href="https://github.com/phoneticslab/nosey">GitHub Nosey Repository</a></li>
-                            <li><a href="https://github.com/porupski/Nosey_MEMS">GitHub Nosey MEMS Repository</a></li>
-                            <!-- <li><a href="#">Audio Processing Library</a></li> -->
-                        </ul>
-                    </div>
-<!--
-                    <div class="sidebar-section">
-                        <h3>Contact & Support</h3>
-                        <ul class="sidebar-list">
-                             <li><a href="#">GitHub Issues</a></li>
-                            <li><a href="#">Discussion Forum</a></li>
-                            <li><a href="#">Email Support</a></li> 
-                        </ul>
-                        </div>
--->
-                </aside>
             </div>
         </div>
     </main>
-        <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Nosey MEMS Project. Open Source Hardware.</p>
-        </div>
-    </footer>
+
+    <!-- Footer placeholder -->
+    <div id="footer-placeholder"></div>
+
 </body>
 </html>

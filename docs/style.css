@@ -138,6 +138,32 @@ body {
     color: #a0aec0;
 }
 
+
+.content-section h3.guide-link {
+    color: #FFA500;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 1.5rem 0 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-left: 4px solid #FFA500;
+    padding-left: 10px;
+    display: inline-block;
+}
+
+.content-section h3.guide-link a {
+    color: #FFA500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.content-section h3.guide-link a:hover {
+    color: #ffbf40; /* lighter orange on hover */
+    text-decoration: underline;
+}
+
+
+
 .content-section p {
     color: #cbd5e0;
     margin-bottom: 1rem;
