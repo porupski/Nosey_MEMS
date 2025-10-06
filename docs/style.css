@@ -262,6 +262,34 @@ body {
     color: #cbd5e0;
 }
 
+.spec-table caption {
+    caption-side: top;         /* puts it above the table */
+    font-weight: 600;
+    font-size: 1rem;
+    color: #e2e8f0;
+    text-align: left;
+    margin-bottom: 0.5rem;    /* space between title and table */
+}
+
+
+figure {
+    text-align: center;        /* center image and caption */
+    margin: 1rem 0;            /* vertical spacing */
+}
+
+
+figure figcaption {
+    caption-side: bottom;         /* puts it above the table */
+    font-weight: 600;
+    font-size: 1rem;
+    color: #e2e8f0;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+
+
+
 .code-block {
     background: #1a202c;
     color: #e2e8f0;
@@ -321,3 +349,5 @@ section[id] {
 h1[id], h2[id], h3[id] {
     scroll-margin-top: 80px;
 }
+
+

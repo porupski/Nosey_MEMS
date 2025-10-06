@@ -44,28 +44,88 @@
 
                         <p>Nosey MEMS is designed to be manufactured as simply, as easily, and as cheaply as possible.</p> 
                         <ul>
-                            <li>The PCB is less than 10x10 cm size, keeping the PCB manufacturing cost low as well as the final device footprint.</li>
+                            <li>The PCB is less than 100x100mm (88x60mm) in size, keeping the PCB manufacturing cost low as well as the final device footprint.</li>
                             <li>Assembly is only done on the Top layer, simplifying the process.</li>
                             <li>All components, excluding the XLR3 audio jacks, are assembled for us, minimizing post-assembly additional work.</li>
                             <li>Automatic assembly allows us to pick smaller part packages, lowering the parts cost and allowing for a smaller footprint, albeit with a possible increase in difficulty for manual rework.</li>
                             <li>The use of MEMS microphones allows us to circumvent a lot of obstacles in microphone design and manufacture—from sourcing parts to soldering—while keeping the cost low at an acceptable frequency range.</li>
                         </ul>
                         
-                        <h3>Getting the Production Files</h3>
-                        <p>Go to the <a href="https://github.com/porupski/Nosey_MEMS">GitHub Repository</a> page and download the "production" .7z file. Inside there is a .zip file containing the PCB Gerber files, the bom.csv file containing the Bill of Materials, and the positions.csv file containing the component placements. All three are critical for manufacture.</p>
-
                     </section>
 
                     <section id="process" class="content-section">
-                        <h2>The Process</h2>
+                        <h2>The Process of Acquiring a Nosey MEMS</h2>
                         <p>Step by step.</p>
+
+                        <h3>Getting the Production Files</h3>
+
+                        <p>Go to <a href="index.html#downloads">Downloads</a> and download the <b>production</b> folder. Inside there are:
+                            <ul>
+                                <li>the <b>.zip file</b> containing the PCB Gerber files,</li>
+                                <li>the <b>bom.csv</b> file containing the Bill of Materials, and</li>
+                                <li>the <b>positions.csv</b> file containing the component placements.</li>
+                            </ul>
+                        All three are <b>critical</b> for manufacture.</p>
+
+                        <p>Find a PCB fabrication and component assembly manufacturer and follow the general ordering process. The rest of the guide will be referencing the process of a particular manufacturer.</p>
                         
                         <h3 id="pcb-fabrication">PCB Fabrication</h3>
                         <p>Upload the .zip Gerber files. Choose fabrication options to your liking.</p>
+                        
+                        <div>
+                        <p>Standard fabrication options are in this <a href="#table_pcb_fab_options"> Table 1</a>:</p>
 
+                        <table id="table_pcb_fab_options" class="spec-table">
+                            <caption class="table-caption">Table 1. PCB Fabrication Settings</caption>
+                            <thead>
+                                <tr>
+                                    <th>Spec</th>
+                                    <th>Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 3px double #e2e8f0;">
+                                    <td>Dimensions (if using the source PCB)</td>
+                                    <td>88 mm × 60 mm</td>
+                                </tr>
+                                <tr>
+                                    <td>Material Type</td>
+                                    <td>FR4 TG135</td>
+                                </tr>
+                                <tr>
+                                    <td>PCB Thickness</td>
+                                    <td>1.6 mm</td>
+                                </tr>
+                                <tr>
+                                    <td>Layers</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>Surface Finish</td>
+                                    <td>HASL (with lead)</td>
+                                </tr>
+                                <tr>
+                                    <td>Outer Copper Weight</td>
+                                    <td>1 oz</td>
+                                </tr>
+                                <tr>
+                                    <td>Via Covering</td>
+                                    <td>Tented</td>
+                                </tr>
+                                <tr>
+                                    <td>Board Outline Tolerance</td>
+                                    <td>±0.2 mm</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                        </div>
                         <h3 id="bill-of-materials">Bill of Materials</h3>
-                        <p>This is the list of the chosen components for the first assembly test run:</p>
-                         <table class="spec-table">
+                        <p>The list of the chosen components for the first assembly test run can be found in <a href="#bom-table"> Table 2</a>.</p>
+
+                        <table id="bom-table" class="spec-table">
+                            <caption class="table-caption">Table 2. Bill of Materials for assembly.</caption>
                             <thead>
                                 <tr>
                                     <th>Component</th>
@@ -75,59 +135,12 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <!-- Resistors (smallest to largest) -->
                                 <tr>
-                                    <td>PJ71K30SC</td>
-                                    <td>U3</td>
-                                    <td>SOT-23</td>
-                                    <td>C411738</td>
-                                </tr>
-                                <tr>
-                                    <td>10nF</td>
-                                    <td>C15</td>
+                                    <td>47R</td>
+                                    <td>R13, R14, R6, R7</td>
                                     <td>0805</td>
-                                    <td>C1710</td>
-                                </tr>
-                                <tr>
-                                    <td>NA-FFA381-A10-1</td>
-                                    <td>MK1, MK2</td>
-                                    <td>2.75x1.85x1.0mm Top Port</td>
-                                    <td>C50275774</td>
-                                </tr>
-                                <tr>
-                                    <td>10uF</td>
-                                    <td>C16, C17, C19</td>
-                                    <td>0805</td>
-                                    <td>C15850</td>
-                                </tr>
-                                <tr>
-                                    <td>1SMA4746A</td>
-                                    <td>D3</td>
-                                    <td>D_SMA</td>
-                                    <td>C330245</td>
-                                </tr>
-                                <tr>
-                                    <td>2.2uF</td>
-                                    <td>C1, C11, C12, C14, C6</td>
-                                    <td>0805</td>
-                                    <td>C377773</td>
-                                </tr>
-                                <tr>
-                                    <td>3k</td>
-                                    <td>R10, R2, R3, R9</td>
-                                    <td>0805</td>
-                                    <td>C17661</td>
-                                </tr>
-                                <tr>
-                                    <td>1N4148</td>
-                                    <td>D1, D2, D4</td>
-                                    <td>D_SOD-323</td>
-                                    <td>C2128</td>
-                                </tr>
-                                <tr>
-                                    <td>OPA1652</td>
-                                    <td>U1, U2</td>
-                                    <td>SOIC-8_3.9x4.9mm_P1.27mm</td>
-                                    <td>C30025</td>
+                                    <td>C17714</td>
                                 </tr>
                                 <tr>
                                     <td>470R</td>
@@ -136,10 +149,23 @@
                                     <td>C17710</td>
                                 </tr>
                                 <tr>
-                                    <td>47uF</td>
-                                    <td>C13, C18, C2, C3, C7, C8</td>
-                                    <td>CP_Elec_6.3x7.7</td>
-                                    <td>C2887275</td>
+                                    <td>3k</td>
+                                    <td>R10, R2, R3, R9</td>
+                                    <td>0805</td>
+                                    <td>C17661</td>
+                                </tr>
+                                <tr>
+                                    <td>15k</td>
+                                    <td>R1, R11, R12, R16, R17, R4, R5, R8</td>
+                                    <td>0805</td>
+                                    <td>C17475</td>
+                                </tr>
+                                <!-- Capacitors (smallest to largest) -->
+                                <tr style="border-bottom: 3px double #e2e8f0;">
+                                    <td>10nF</td>
+                                    <td>C15</td>
+                                    <td>0805</td>
+                                    <td>C1710</td>
                                 </tr>
                                 <tr>
                                     <td>22nF</td>
@@ -148,42 +174,141 @@
                                     <td>C1729</td>
                                 </tr>
                                 <tr>
-                                    <td>47R</td>
-                                    <td>R13, R14, R6, R7</td>
+                                    <td>2.2uF</td>
+                                    <td>C1, C11, C12, C14, C6</td>
                                     <td>0805</td>
-                                    <td>C17714</td>
+                                    <td>C377773</td>
                                 </tr>
                                 <tr>
-                                    <td>15k</td>
-                                    <td>R1, R11, R12, R16, R17, R4, R5, R8</td>
+                                    <td>10uF</td>
+                                    <td>C16, C17, C19</td>
                                     <td>0805</td>
-                                    <td>C17475</td>
+                                    <td>C15850</td>
+                                </tr>
+                                <tr>
+                                    <td>47uF</td>
+                                    <td>C13, C18, C2, C3, C7, C8</td>
+                                    <td>CP_Elec_6.3x7.7</td>
+                                    <td>C2887275</td>
+                                </tr>
+                                <!-- Diodes -->
+                                <tr style="border-bottom: 3px double #e2e8f0;">
+                                    <td>1N4148</td>
+                                    <td>D1, D2, D4</td>
+                                    <td>D_SOD-323</td>
+                                    <td>C2128</td>
+                                </tr>
+                                <tr>
+                                    <td>1SMA4746A</td>
+                                    <td>D3</td>
+                                    <td>D_SMA</td>
+                                    <td>C330245</td>
+                                </tr>
+                                <!-- Other components -->
+                                <tr style="border-bottom: 3px double #e2e8f0;">
+                                    <td>OPA1652</td>
+                                    <td>U1, U2</td>
+                                    <td>SOIC-8_3.9x4.9mm_P1.27mm</td>
+                                    <td>C30025</td>
+                                </tr>
+                                <tr>
+                                    <td>PJ71K30SC</td>
+                                    <td>U3</td>
+                                    <td>SOT-23</td>
+                                    <td>C411738</td>
+                                </tr>
+                                <tr>
+                                    <td>NA-FFA381-A10-1</td>
+                                    <td>MK1, MK2</td>
+                                    <td>2.75x1.85x1.0mm Top Port</td>
+                                    <td>C50275774</td>
                                 </tr>
                             </tbody>
                         </table>
 
-                        <h3 id="assembly">Assembly Instructions</h3>
-                        <p>After confirming the BOM file, the component placements need to be verified next. Sometimes, the orientation of components may be wrong. Carefully inspect and make sure all polarities are correct. The assembly placement for the first run is shown here:</p>
 
-                        <div>
-                            <img src="img/Nosey_MEMS_PCBA-first-ed_oct2025.png" alt="Nosey MEMS PCB top assembly component placements" width="800">
-                        </div>
+                        <h3 id="assembly">Assembly Instructions</h3>
+                        <p>After confirming the BOM file, the component placements need to be verified next. Sometimes, the orientation of components may be wrong. Carefully inspect and make sure all polarities are correct. The assembly placement for the first run is shown in <a href="#pcb_assembly_placement">Figure 1</a>.</p>
+
+                        <figure>
+                            <img id="pcb_assembly_placement" 
+                                src="img/Nosey_MEMS_PCBA-first-ed_oct2025.png" 
+                                alt="Nosey MEMS PCB top assembly component placements" 
+                                width="800">
+                            <figcaption>Figure 1. Component orientation and placement visualization during the ordering process.</figcaption>
+                        </figure>
+
 
                         <div class="disclaimer">
                             <h4>NOTE:</h4>
-                            <p>For some reason, the manufacturer does not have the model for the MEMS microphones (MK1, MK2). Hopefully the manufacturer will take care of this, otherwise a soldering station and advanced SMD soldering skills may be needed.</p>
-                        </div>
+                            <p>For some reason, the manufacturer's viewer does not show the model for the MEMS microphones (MK1, MK2). This should then be taken care of by the manufacturer, otherwise a soldering station and advanced SMD soldering skills may be needed to solder on the MEMS microphones.</p>
+                            <p>If a component is placed in the wrong orientation, the manufacturer typically runs a Design for manufacturability (DFM) analysis to catch such mistakes. While this provides a useful safety net, it's best practice to ensure all components are oriented correctly before submitting the design.</p>
 
-                        <div class="disclaimer">
+                        <!-- <div class="disclaimer">
                             <h4>WARNING!</h4>
-                            <p>Please note that the Zener diode D3 is placed WRONG. Hopefully the manufacturer will pick up on this, otherwise manual rework will be needed.</p>
+                            <p>Please note that the Zener diode D3 is placed WRONG. Hopefully the manufacturer will pick up on this, otherwise manual rework will be needed.</p>-->
+                        </div> 
+                        <div>
+                            This concludes the ordering process. If all went well, your Nosey MEMS is being manufactured and you will receive it fully and properly assembled. When it arrives, move to <a href="#soldering-sec">Soldering</a>. 
                         </div>
 
                     </section>
 
+
+                    <section id="soldering-sec" class="content-section">
+                        <div>
+                            <h2 id="soldering">Soldering</h2>
+                            <p>The only components that have to be soldered upon receiving the finished board are the two XLR3 audio jacks.</p>
+
+                            <p>
+                                <ul>
+                                    <li>Place the audio jacks on their designated place on the PCB (J1, J2), as seen in <a href="#pcb_assembly_placement">Figure 2</a> (coming soon).</li>
+                                    <li>Solder the joints with solder and flux.</li>
+                                    <li>Verify all connections are mechanically and electronically sound.</li>
+                                    <li>Move to Testing and Verification.</li>
+                                </ul>
+                                Alternatively, should sourcing the jacks be difficult or there isn't a need for jacks, one may solder the audio cable directly to the PCB, provided additional reinforcments are made to the cable (potencially zip-tied to the 3D printed Housing?).
+                            </p>
+
+                        <div>
+                        <figure>
+                            <!-- <img id="pcb_assembly_placement" 
+                                src="img/Nosey_MEMS_PCBA-first-ed_oct2025.png" 
+                                alt="Nosey MEMS PCB top assembly component placements" 
+                                width="800"> -->
+                            <figcaption>Figure 2. Component orientation and placement visualization during the ordering process.</figcaption>
+                        </figure>
+                        </div>
+
+                        <div>
+                            This concludes the soldering process. If all went well, your Nosey MEMS is now ready to be tested. Move to <a href="#testing">Testing</a>. 
+                        </div>
+
+
+                        </div>
+                    </section>
+
+
+
+
                     <section id="testing" class="content-section">
                         <h2>Testing & Verification</h2>
                         <p>How to test your completed device to ensure proper functionality.</p>
+                        <div>
+                            <p> 
+
+                            </p>
+                                 <ul>
+                                    <li>First, visually inspect the board. Is it neat? Is it clean? Are all the parts neatly placed and soldered? Are any crooked? Are all component making electrical contact? Does any component look damaged? Are all the polarized components (diodes, capacitors, amps) correctly oriented?</li>
+                                    <li>Second, <b>turn off Phantom power (48V)</b> and, provdided the board is up to standard, connect <b>only one</b> of the two channels the Nosey MEMS to an audio capture card with a shielded balanced XLR cable. Verify there are no sounds coming from the Nosey MEMS, as it is not yet powered.</li>
+                                    <li>Third, <b>set the gain to zero</b> before turning on Phantom power (48V).</li>
+                                    <li>Fourth, <b>slowly increase the grain</b>, making sure there is no feedback or irregular sounds, try talking into the MEMS microphone of the connected channel. You should hear yourself clearly, with no distorsion, delay or artefacts.</li>
+                                    <li>Fifth, repeat the process for the other channel and verify that both are working correctly and equally well.</li>
+                                    <li></li>
+                                </ul>
+                                <p>If the verification process was successful, move on to <a href="index.html#calibration">Calibration</a>. If the verification failed, try <a href="#troubleshooting">Troubleshooting</a>.</p>
+
+                        </div>
                     </section>
 
                     <section id="troubleshooting" class="content-section">
