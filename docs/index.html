@@ -80,7 +80,6 @@
 
                             <li>Dual OPA1652 low-noise amplifiers are employed in a differential configuration: one channel as a unity-gain non-inverting stage for the hot signal, the other as a unity-gain inverting stage for the cold. This topology leverages the OPA1652’s low current consumption and excellent noise performance to provide a high-fidelity, fully balanced input stage.</li>
 
-
                             <li>Power supply consists of a bank of capacitors with an 18V Zener diode with filtering as the supply for the OPA1652, employing virtual ground (V/2) using a voltage divider. The power supply is passed through the LDO PJ71k30 to provide a stable 3V supply for the MEMS microphone.</li>
 
                         </ul>
@@ -90,6 +89,8 @@
 
                         <ul>
                             <li>Small form factor, slides into the new Nosey-MEMS 3D printed model.</li>
+
+                            <li>The MEMS microphones are placed 40mm apart, offering symmetric distance from both the nose and mouth, while also ensuring consistency between recordings.</li>
 
                             <li>Two XLR3 jacks run from the side down, staying out of the way and allowing easier cabel management, while providing ample structural support.</li>
 
@@ -116,10 +117,14 @@
                             <li> Bottom camera-stand mount(?).</li>
 
                             <li>Open-source Nosey-MEMS 3D model files COMING SOON.</li>
-                            <!-- <li>[WORK IN PROGRESS] The PCB hasn't even existed yet! (24sep2025)</li> -->
+
 
                         </ul>
 
+                            <!-- <li>[WORK IN PROGRESS] The PCBA has been ordered! (07oct2025)</li> -->
+                            <!-- <li>[WORK IN PROGRESS] The PCB hasn't even existed yet! (24sep2025)</li> -->
+
+                            
                         <div class="disclaimer">
                             <h4>Safety Disclaimer</h4>
 
@@ -302,7 +307,9 @@
                                 <li id="ref1" style="margin-bottom: 0.5em;">[1] Dewhurst, M., Collins, J., Lo, J. J., Alderton, R., & Kirkham, S. (2025). Nosey: Open-source hardware for acoustic nasalance. arXiv preprint <a href="https://arxiv.org/pdf/2505.23339">arXiv:2505.23339</a>. <a href="https://www.isca-archive.org/interspeech_2025/dewhurst25_interspeech.pdf"><b>Nosey InterSpeech2025 Paper [PDF]</b></a></li>
                                 <li id="ref2" style="margin-bottom: 0.5em;">[2] Self, D. (2023). Small signal audio design. Focal Press.</li>
                                 <li id="ref3" style="margin-bottom: 0.5em;">[3] DJJules' Instructable <a href="https://www.instructables.com/True-Condenser-OPA-Mics/">True Condenser OPA Mics</a></li>
-                                <li id="ref4" style="margin-bottom: 0.5em;">[4] Texas Instruments: <a href="https://www.ti.com/lit/an/snoa621c/snoa621c.pdf">An Applications Guide for Op Amps</a></li>
+                                <li id="ref4" style="margin-bottom: 0.5em;">[4] Texas Instruments. (2013). An applications guide for op amps (Application Report SNOA621C). Texas Instruments <a href="https://www.ti.com/lit/an/snoa621c/snoa621c.pdf">Link to PDF</a></li>
+                                <li id="ref5" style="margin-bottom: 0.5em;">[5] STMicroelectronics. (2017). Tutorial for MEMS microphones (Application Note AN4426). STMicroelectronics. <a href="https://www.st.com/resource/en/application_note/dm00103199-tutorial-for-mems-microphones-stmicroelectronics.pdf">Link to PDF</a></li>
+                                <li id="ref6" style="margin-bottom: 0.5em;">[6] Infineon Technologies. (2018). MEMS microphone mechanical & acoustical implementation (Application Note AN557). Infineon Technologies. <a href="https://www.mouser.com/pdfDocs/Infineon-AN557_MEMS_microphone_mechanical_and_acoustical_implementation-AN-v01_01-EN.pdf">Link to PDF</a></li>
                             </ol>
 
                             <p>A lot about microphone circuits can be found on <a href="https://groups.io/g/MicBuilders/">groups.io/g/MicBuilders/</a>.</p>
