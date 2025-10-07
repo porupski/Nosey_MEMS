@@ -249,29 +249,48 @@
                             <h2 id="soldering">Soldering</h2>
                             <p>The only components that have to be soldered upon receiving the finished board are the two XLR3 audio jacks.</p>
 
-                            <p>
+                            <div>
                                 <ul>
                                     <li>Place the audio jacks on their designated place on the PCB (J1, J2), as seen in <a href="#pcb_assembly_placement">Figure 2</a> (coming soon).</li>
                                     <li>Solder the joints with solder and flux.</li>
                                     <li>Verify all connections are mechanically and electronically sound.</li>
                                     <li>Move to Testing and Verification.</li>
                                 </ul>
-                                Alternatively, should sourcing the jacks be difficult or there isn't a need for jacks, one may solder the audio cable directly to the PCB, provided additional reinforcments are made to the cable (potencially zip-tied to the 3D printed Housing?).
-                            </p>
 
-                        <div>
-                        <figure>
-                            <!-- <img id="pcb_assembly_placement" 
-                                src="img/Nosey_MEMS_PCBA-first-ed_oct2025.png" 
-                                alt="Nosey MEMS PCB top assembly component placements" 
-                                width="800"> -->
-                            <figcaption>Figure 2. Component orientation and placement visualization during the ordering process.</figcaption>
-                        </figure>
-                        </div>
+                            <div>
+                            <figure>
+                                <!-- <img id="pcb_assembly_placement" 
+                                    src="img/Nosey_MEMS_PCBA-first-ed_oct2025.png" 
+                                    alt="Nosey MEMS PCB top assembly component placements" 
+                                    width="800"> -->
+                                <figcaption>Figure 2. Component orientation and placement visualization during the ordering process.</figcaption>
+                            </figure>
+                            </div>
 
-                        <div>
-                            This concludes the soldering process. If all went well, your Nosey MEMS is now ready to be tested. Move to <a href="#testing">Testing</a>. 
-                        </div>
+                            <div>
+                                This concludes the soldering process. If all went well, your Nosey MEMS is now ready to be tested. If you are interested in certain mods, see <a href="#mods">Modifications</a>, otherwise move to <a href="#testing">Testing</a>. 
+                            </div>
+
+                            </div>
+
+                            <p></p>
+
+                            <h2 id="mods">Modifications</h2>
+                            <h3>Jackless Nosey MEMS</h3>
+                            <p>Alternatively, should sourcing the jacks be difficult or there isn't a need for jacks, one may solder the audio cable directly to the PCB, provided additional reinforcments are made to the cable (potencially zip-tied to the 3D printed Housing?).</p>
+
+                            <p></p>
+
+                            <h3>5V Operation</h3>
+                            <p></p>
+                            <p></p>
+
+                            <h3>Shield to Ground</h3>
+                            <p></p>
+                            <p></p>
+
+
+
 
 
                         </div>
@@ -303,8 +322,50 @@
                     <section id="troubleshooting" class="content-section">
                         <h2>Troubleshooting</h2>
                         <p>Common issues and how to resolve them.</p>
+
+                        <div>
+                            <p>Visually inspect the board:</p>
+                            <ul>
+                                <li>Is it neat?</li>
+                                <li>Is it clean?</li>
+                                <li>Are all the parts neatly placed and soldered?</li>
+                                <li>Are any crooked?</li>
+                                <li>Does any component look damaged?</li>
+                                <li>Are all the polarized components (diodes, capacitors, amps) correctly oriented?</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <p>Electrically inspect the board:</p>
+                            <ul>
+                                <li>Is Phantom power on? Is it 48V?</li>
+                                <li>Vcc is 18V?</li>
+                                <li>V/2 is half of Vcc (9V)?</li>
+                                <li>Are all components making electrical contact?</li>
+                                <li>Do any component pins look soldered together?</li>
+                                <li>Is there any PCB trace damaged or missing?</li>
+                                <li>Are there any shorts? (Consult the schematic)</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <p>Verify audio chain:</p>
+                            <ul>
+                                <li>Is the audio capture card plugged in and turned on?</li>
+                                <li>Is Phantom power on? Is it 48V?</li>
+                                <li>Are the XLR3 cables good? XLR3 jacks?</li>
+                                <li>Is the Nosey MEMS properly assembled?</li>
+                                <li>Is the audio capture card's gain set to zero? Muted channel?</li>
+                                <li>Is the audio capture card outputting the Nosey MEMS audio out?</li>
+                                <li>Is the audio capture card connected to a computer running REW?</li>
+                            </ul>
+                        </div>
+
+
+
                     </section>
                 </div>
+
 
                 <!-- Sidebar placeholder -->
                 <aside class="sidebar" id="sidebar-placeholder"></aside>
