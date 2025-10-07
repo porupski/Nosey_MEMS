@@ -25,18 +25,44 @@
 
                     <section id="starting-off" class="content-section">
                         <h2>Starting off right</h2>
-                        <p>This guide will walk you through the complete calibration process for the Nosey MEMS Nasometer.</p>
+                        <p>This guide will walk you through the complete calibration process for the Nosey MEMS Nasometer using REW.</p>
+                        <p>
+                            <a href="https://www.roomeqwizard.com/">Room EQ Wizard</a> (REW) is an open-source software package for acoustical measurements. It is commonly used for measuring acoustic of a room, frequency response of speakers and microphones, but also (pre)amplifier circuits.
+                        </p>
+                        <p>Available for Windows, macOS and Linux.</p>
+                        
+                        <h3>General steps for calibrating Nosey MEMS:</h3>
+                        <ul>
+                            <li>Connect both Nosey MEMS channels to an audio card (pre-calibrated with REW, Phantom Power +48V on) and verify the microphones are working.</li>
+                            <li>Mount Nosey MEMS about 5cm from a loudspeaker (ideally calibrated studio monitor).</li>
+                            <li>Run REW frequency sweep for each microphone.</li>
+                            <li>Compare the frequency response curves to verify if the microphones match up sufficiently for your reasearch purposes.</li>
+                            <li>Optional: Use these response curves to filter your raw audio before nasalance calculations.</li>
+
+                        </ul>
+                    </section>
+
+
+                    <section id="setting-rew" class="content-section">
+                        <h2>Setting up REW</h2>
+
+                        <p>Here we talk about setting up REW with audio card and Nosey MEMS</p>
+                        <p>Making sure everything works, images here and there.</p>
+
                     </section>
 
 
 
-                    <section class="content-section">
-                        <div>
+                    <section id="sweeping" class="content-section">
+                        <h2>Doing a frequency sweep</h2>
+                        <p>This is a critical step in ensuring your Nosey MEMS works as intended. Since all microphones vary unit to unit, it is vital to determine if our MEMS are up to specification.</p>
+                        
+                        <p>Images of the process in REW.</p>
 
+                        <p>Ponder the results and conclude.</p>
 
-                            
+                        <p>You are now ready to perform <a href="nasometry.html#hero">nasometry</a>.</p>
 
-                        </div>
                     </section>
 
 
