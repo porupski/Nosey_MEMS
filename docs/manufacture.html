@@ -214,6 +214,9 @@
                                 </tr>
                             </tbody>
                         </table>
+                        
+                        <p>These are the chosen components available at the time (October2025).</p>
+                        <p>Please adjust according to your need and your manufacturer.</p>
 
 
                         <h3 id="assembly">Assembly Instructions</h3>
@@ -279,18 +282,21 @@
                             <h3>Jackless Nosey MEMS</h3>
                             <p>Alternatively, should sourcing the jacks be difficult or there isn't a need for jacks, one may solder the audio cable directly to the PCB, provided additional reinforcments are made to the cable (potencially zip-tied to the 3D printed Housing?).</p>
 
-                            <p></p>
+                            <p>Figure</p>
 
-                            <h3>5V Operation</h3>
-                            <p></p>
-                            <p></p>
+                            <p>3D print adapter to allow for jackless mounting of the wires?</p>
+
 
                             <h3>Shield to Ground</h3>
-                            <p></p>
-                            <p></p>
+                            <p>Contested topic. Will do tests.</p>
+                            
+                            <p>Figure</p>
 
 
-
+                            <h3>5V Operation</h3>
+                            <p>For advanced users only.</p>
+                            
+                            <p>Figure</p>
 
 
                         </div>
@@ -312,7 +318,7 @@
                                     <li>Third, <b>set the gain to zero</b> before turning on Phantom power (48V).</li>
                                     <li>Fourth, <b>slowly increase the grain</b>, making sure there is no feedback or irregular sounds, try talking into the MEMS microphone of the connected channel. You should hear yourself clearly, with no distorsion, delay or artefacts.</li>
                                     <li>Fifth, repeat the process for the other channel and verify that both are working correctly and equally well.</li>
-                                    <li></li>
+                                    <li>Sixth, congratulations on your working Nosey MEMS!</li>
                                 </ul>
                                 <p>If the verification process was successful, move on to <a href="3dprinting.html#hero">3D Printing the parts</a>. If the verification failed, try <a href="#troubleshooting">Troubleshooting</a>.</p>
 
@@ -324,45 +330,39 @@
                         <p>Common issues and how to resolve them.</p>
 
                         <div>
-                            <p>Visually inspect the board:</p>
+                            <h3>PCB Visual Inspection</h3>
                             <ul>
-                                <li>Is it neat?</li>
-                                <li>Is it clean?</li>
-                                <li>Are all the parts neatly placed and soldered?</li>
-                                <li>Are any crooked?</li>
-                                <li>Does any component look damaged?</li>
-                                <li>Are all the polarized components (diodes, capacitors, amps) correctly oriented?</li>
+                                <li>Check overall board cleanliness and neatness of component placement</li>
+                                <li>Verify all components are properly seated, straight, and free from physical damage</li>
+                                <li>Confirm correct orientation of all polarized components (diodes, electrolytic capacitors, ICs)</li>
+                                <li>Look for any bent pins, damaged traces, or signs of thermal stress</li>
                             </ul>
                         </div>
 
                         <div>
-                            <p>Electrically inspect the board:</p>
+                            <h3>PCB Electrical Inspection</h3>
                             <ul>
-                                <li>Is Phantom power on? Is it 48V?</li>
-                                <li>Vcc is 18V?</li>
-                                <li>V/2 is half of Vcc (9V)?</li>
-                                <li>Are all components making electrical contact?</li>
-                                <li>Do any component pins look soldered together?</li>
-                                <li>Is there any PCB trace damaged or missing?</li>
-                                <li>Are there any shorts? (Consult the schematic)</li>
+                                <li>Verify phantom power is enabled and measures 48V at the XLR connector (Test Pad TP4)</li>
+                                <li>Measure Vcc voltage supply — should read approx. 18V (Test Pad TP5)</li>
+                                <li>Measure V/2 bias voltage — should read half of Vcc, approx. 9V (Test Pad TP6)</li>
+                                <li>Check for any output signal from the op-amps (Test Pads TP1 for L/Nasality and TP2 for R/Orality channel)</li>
+                                <li>Inspect all solder joints for proper flow and electrical contact—look for cold joints or bridged connections</li>
+                                <li>Examine PCB traces for damage, lifted pads, or unintended continuity between nets</li>
+                                <li>Use a multimeter in continuity mode to check for shorts between power rails and ground</li>
                             </ul>
                         </div>
 
                         <div>
-                            <p>Verify audio chain:</p>
+                            <h3>Audio Chain Verification</h3>
                             <ul>
-                                <li>Is the audio capture card plugged in and turned on?</li>
-                                <li>Is Phantom power on? Is it 48V?</li>
-                                <li>Are the XLR3 cables good? XLR3 jacks?</li>
-                                <li>Is the Nosey MEMS properly assembled?</li>
-                                <li>Is the audio capture card's gain set to zero? Muted channel?</li>
-                                <li>Is the audio capture card outputting the Nosey MEMS audio out?</li>
-                                <li>Is the audio capture card connected to a computer running REW?</li>
+                                <li>Confirm audio interface is powered on, connected to computer, and recognized by the system</li>
+                                <li>Test XLR cables and connectors with a known-good microphone to rule out cable faults</li>
+                                <li>Verify Nosey MEMS nasometer is properly seated and making good electrical contact</li>
+                                <li>Set audio interface gain to minimum (0dB) and ensure channel is unmuted</li>
+                                <li>Confirm correct input/output routing in your DAW or REW software</li>
+                                <li>Check that phantom power is reaching the microphone through the entire signal chain (Test Pad TP4)</li>
                             </ul>
                         </div>
-
-
-
                     </section>
                 </div>
 
