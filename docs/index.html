@@ -34,6 +34,22 @@
                         
                         <p><b>Nosey MEMS</b> is a <b>fully open-source nasometer</b>, a device used to measure the acoustic energy simultaneously from both the oral and nasal cavities produced during speech. This type of study is most commonly studied within the field of <a href="https://sheffield.ac.uk/linguistics/home/all-about-linguistics/about-website/branches-linguistics/phonetics/what-do-phoneticians-study/articulatory">Articulatory Phonetics</a>.</p>
 
+            <div style="display: flex; gap: 2rem; justify-content: center; align-items: flex-start; margin: 2rem 2rem; flex-wrap: wrap;">
+            <figure style="flex: 1; min-width: 300px; max-width: 45%; margin: 0;">
+                <img src="img/Nosey_MEMS_hero-shot_front.jpeg" 
+                     alt="Nosey MEMS front side" 
+                     style="width: 100%; height: auto; border-radius: 8px;">
+
+            </figure>
+
+            <figure style="flex: 1; min-width: 300px; max-width: 45%; margin: 0;">
+                <img src="img/Nosey_MEMS_hero-shot_back.jpeg" 
+                     alt="Nosey MEMS back side" 
+                     style="width: 100%; height: auto; border-radius: 8px;">
+
+            </figure>
+        </div>
+
                         <p><b>Nosey MEMS</b> is the first direct upgrade of Nosey <a href="#ref2">[1]</a>, the open-source hardware for acoustic nasalance, developed by <a href="https://github.com/phoneticslab/nosey">Lancaster University Phonetics lab</a>.</p>
 
                         
@@ -95,11 +111,11 @@
 
                             <li>Two XLR3 jacks run from the side down, staying out of the way and allowing easier cabel management, while providing ample structural support.</li>
 
-                            <li>The metal shielding connects to the PCB via the XLR3's ground connection in the bottom right screw hole and via the PCB's two mounting points. See <a href="#3dprinting">Housing Preparations</a>.</li>
-
-                            <li>The tall electrolytic capacitor's topology was used to create a barrier between the two MEMS microphones, (hopefully) reducing cross-contamination.</li>
+                            <li>The metal shielding connects to the PCB via the XLR3's ground connection in the bottom right screw hole and via the PCB's two mounting points.
 
                             <li>QR code linking to this site for easy access to documentation.</li>
+
+                            <li>The tall electrolytic capacitor's topology was used to create a barrier between the two MEMS microphones, reducing cross-contamination.</li>
 
                             <li>Convenient Test Pads TP1-2 for audio signals and TP3-6 for power supply.</li>
 
@@ -115,7 +131,7 @@
 
                             <li>The microphone preamp PCB slides into the new design, followed by two screws on the top corners and four screws for the two XLR3 jacks, securely mounting it to the 3D printed parts.</li>
 
-                            <li> Bottom camera-stand mount(?).</li>
+                            <li>Bottom camera-stand mount(?).</li>
 
                             <li>Open-source Nosey-MEMS 3D model files COMING SOON.</li>
 
@@ -135,21 +151,30 @@
                     </section>
 
 
-                    <section id="downloads" class="content-section">
-                        <h2>Downloads</h2>
-                        <p>Project files, documentation, and resources will be available here as development progresses.</p>
-                        
-                        <h3>Available Files</h3>
-                        <ul>
-                            <li>[KiCad 9] Schematic,</li>
-                            <li>[KiCad 9] PCB Layout (unmelted and melted),</li>
-                            <li>[JLCPCB] PCB gerber production .zip ready for assembly (with melted tracks!): <a href="https://github.com/porupski/Nosey_MEMS/tree/main/KiCad_files">Repo/KiCad_files</a></li>
-                            <br>
-                            <li>[REW] Frequency response curves of both MEMS micrphones (preliminary test): <a href="https://github.com/porupski/Nosey_MEMS/tree/main/REW_files">Repo/REW_files</a></li>
-                            <li>[STL] 3D printable Baffle, Handle and Casing models (Coming Later)</li>
-                            <li>Documentation (<a href="https://porupski.github.io/Nosey_MEMS/">This page</a>)</li>
-                        </ul>
-                    </section>
+<section id="downloads" class="content-section">
+    <h2>Downloads</h2>
+    <p>Project files, documentation, and resources will be available here as development progresses.</p>
+
+    <h3>Available Files</h3>
+
+    <h4><a href="https://github.com/porupski/Nosey_MEMS/tree/main/KiCad_files"><strong>Repo/KiCad_files</strong></a></h4>
+    <ul>
+        <li>[KiCad 9] Schematic</li>
+        <li>[KiCad 9] PCB Layout (unmelted and melted)</li>
+        <li>[JLCPCB] PCB gerber production .zip ready for assembly (with melted tracks!)</li>
+    </ul>
+
+    <h4><a href="https://github.com/porupski/Nosey_MEMS/tree/main/REW_files"><strong>Repo/REW_files</strong></a></h4>
+    <ul>
+        <li>[REW] Frequency response curves of both MEMS micrphones (preliminary test)</li>
+    </ul>
+
+    <h4>Other Resources</h4>
+    <ul>
+        <li>[STL] 3D printable Baffle, Handle and Casing models (Coming Later)</li>
+        <li>Documentation (<a href="https://porupski.github.io/Nosey_MEMS/">This page</a>)</li>
+    </ul>
+</section>
 
 
                     <section id="manufacture" class="content-section">
@@ -163,12 +188,6 @@
                         <div>
                         <p>
                             After quality control, inside the GitHub repo there will be a .zip file available for PCB assembly manufacturing (currently, only for JLCPCB).
-                        </p>
-
-                        <p>
-                            [Update 1nov2025] The first REW test has been successfully made!
-                            [Update 24oct2025] The first Nosey MEMS has been tested and it works!!
-                            [Update 4oct2025] The first PCB assembly test run is on way!
                         </p>
 
 
