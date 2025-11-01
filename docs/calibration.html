@@ -23,47 +23,221 @@
             <div class="content-grid">
                 <div class="main-column">
 
-                    <section id="starting-off" class="content-section">
-                        <h2>Starting off right</h2>
-                        <p>This guide will walk you through the complete calibration process for the Nosey MEMS Nasometer using REW.</p>
-                        <p>
-                            <a href="https://www.roomeqwizard.com/">Room EQ Wizard</a> (REW) is an open-source software package for acoustical measurements. It is commonly used for measuring acoustic of a room, frequency response of speakers and microphones, but also (pre)amplifier circuits.
-                        </p>
-                        <p>Available for Windows, macOS and Linux.</p>
-                        
-                        <h3>General steps for calibrating Nosey MEMS:</h3>
-                        <ul>
-                            <li>Connect both Nosey MEMS channels to an audio card (pre-calibrated with REW, Phantom Power +48V on) and verify the microphones are working.</li>
-                            <li>Mount Nosey MEMS about 5cm from a loudspeaker (ideally calibrated studio monitor).</li>
-                            <li>Run REW frequency sweep for each microphone.</li>
-                            <li>Compare the frequency response curves to verify if the microphones match up sufficiently for your reasearch purposes.</li>
-                            <li>Optional: Use these response curves to filter your raw audio before nasalance calculations.</li>
+<section id="starting-off" class="content-section">
+    <h2>Starting off right</h2>
+    
+    <p>This guide covers the validation and calibration process for the Nosey MEMS Nasometer using Room EQ Wizard (REW).</p>
+    
+    <p>
+        <a href="https://www.roomeqwizard.com/" target="_blank">Room EQ Wizard</a> (REW) is open-source acoustical measurement software commonly used for measuring room acoustics, frequency response of speakers and microphones, and audio circuit characteristics. It is available for Windows, macOS, and Linux.
+    </p>
+    
+    <h3>Calibration Process Summary</h3>
+    
+    <p>The following steps verify that the L-Nasality and R-Orality microphones have matched frequency responses:</p>
+    
+    <ol style="padding-left: 2em; margin-left: 1em;">
+        <li><strong>Setup audio interface:</strong> Connect both Nosey MEMS channels to a USB audio interface with phantom power (+48V) enabled. Verify signal input in the system audio settings.</li>
+        
+        <li><strong>Position the device:</strong> Mount the Nosey MEMS approximately 5 cm from a loudspeaker or studio monitor in a stable position.</li>
+        
+        <li><strong>Run frequency sweeps:</strong> Use REW to perform frequency sweep measurements on both the L and R channels across the audible spectrum (20 Hz - 20 kHz).</li>
+        
+        <li><strong>Compare responses:</strong> Analyze the frequency response curves to verify that both microphones track each other closely. Well-matched microphones are essential for accurate nasalance ratio calculations.</li>
+        
+        <li><strong>Optional calibration:</strong> Export the frequency response data to apply correction filters to raw audio recordings before performing nasalance calculations.</li>
+    </ol>
+    <br>
+    <p><strong>Note:</strong> For basic nasalance measurements (ratio-based), absolute SPL calibration is not required. The critical factor is that both microphones have matched relative frequency responses.</p>
+</section>
 
-                        </ul>
-                    </section>
+<section id="setting-rew" class="content-section">
+    <h2>Setting up REW</h2>
+    
+    <p>This guide covers the installation of <strong>Room EQ Wizard (REW)</strong> on Linux Mint and configuration with a USB audio interface.</p>
+    
+    <h3>Installation Steps</h3>
+    
+    <div class="step">
+        <h4>1. Download REW</h4>
+        <p>Download the no-JRE installer from the <a href="https://www.roomeqwizard.com/" target="_blank">official REW website</a>:</p>
+        <div class="code-block"><code>REW_linux_no_jre_5_31_3.sh</code></div>
+        <br>
+    </div>
+    
+    <div class="step">
+        <h4>2. Install Java 8</h4>
+        <p>The REW installer specifically requires Java 8, even though REW itself runs fine on newer versions:</p>
+        <div class="code-block"><code>sudo apt install openjdk-8-jre</code></div>
+        <br>
+    </div>
+    
+    <div class="step">
+        <h4>3. Run the Installer</h4>
+        <p>Point the installer to the Java 8 installation:</p>
+        <div class="code-block"><code>INSTALL4J_JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 ./REW_linux_no_jre_5_31_3.sh</code></div>
+        <br>
+        <p>Follow the graphical installer prompts to complete the installation.</p>
+    </div>
+    
+    <h3>Audio Interface Setup</h3>
+    
+    <p>This example uses a <strong>Behringer UMC404HD</strong> USB audio interface. The process is similar for other USB audio interfaces.</p>
+    
+    <div class="step">
+        <h4>1. Connect the Audio Interface</h4>
+        <p>Connect the USB audio interface and allow the system to recognize it.</p>
+    </div>
+    
+    <div class="step">
+        <h4>2. Open PulseAudio Volume Control</h4>
+        <p>Launch pavucontrol from the terminal or application menu:</p>
+        <div class="code-block"><code>pavucontrol</code></div>
+        <br>
+        <p>If not installed, install it first:</p>
+        <div class="code-block"><code>sudo apt install pavucontrol</code></div>
+        <br>
+    </div>
+    
+    <div class="step">
+        <h4>3. Configure the Audio Profile</h4>
+        <p>In pavucontrol, navigate to the <strong>Configuration</strong> tab:</p>
+        <ol style="padding-left: 2em; margin-left: 1em;">
+            <li>Locate the audio interface (e.g., "UMC404HD 192k")</li>
+            <li>Change the profile dropdown to <strong>Output + Input</strong> (or "Analog Stereo Duplex")</li>
+            <li>This enables both recording and playback through the interface</li>
+        </ol>
+        <br>
+    </div>
+    
+    <div class="step">
+        <h4>4. Verify Input (Microphone)</h4>
+        <p>Switch to the <strong>Input Devices</strong> tab:</p>
+        <ol style="padding-left: 2em; margin-left: 1em;">
+            <li>Locate the audio interface input</li>
+            <li>Generate test audio near the microphone</li>
+            <li>Verify the green level meter responds to sound</li>
+            <li>Adjust the input volume slider as needed</li>
+        </ol>
+        <br>
+    </div>
+    
+    <div class="step">
+        <h4>5. Verify Output (Studio Monitors)</h4>
+        <p>Switch to the <strong>Output Devices</strong> tab:</p>
+        <ol style="padding-left: 2em; margin-left: 1em;">
+            <li>Locate the audio interface output</li>
+            <li>Play test audio (music, system sounds, etc.)</li>
+            <li>Confirm sound outputs through the studio monitors connected to the interface</li>
+            <li>Adjust the output volume slider as needed</li>
+        </ol>
+        <br>
+    </div>
+    
+    <div class="step">
+        <h4>6. Configure REW</h4>
+        <p>In Room EQ Wizard, navigate to <strong>Preferences → Soundcard</strong>:</p>
+        <ol style="padding-left: 2em; margin-left: 1em;">
+            <li>Set <strong>Input Device</strong> to the audio interface (e.g., "UMC404HD")</li>
+            <li>Set <strong>Output Device</strong> to the same interface</li>
+            <li>Click <strong>OK</strong> to save the configuration</li>
+        </ol>
+        <br>
+    </div>
+    
+    <br>
+    
+    <div class="info-box">
+        <p><strong>💡 Troubleshooting Tips:</strong></p>
+        <ul>
+            <li>If the audio interface doesn't appear in REW, restart the application</li>
+            <li>Use <code>pavucontrol</code> to verify the device is recognized and set to "Analog Stereo Duplex"</li>
+            <li>The Java 8 requirement is only for the <em>installer</em> — REW runs fine on Java 17+ after installation</li>
+            <li><strong>Finding the Java path:</strong> If Java 8 is installed in a non-standard location, find it with:
+                <div class="code-block"><code>readlink -f $(which java)</code></div>
+                Use the path up to (but not including) <code>/bin/java</code> as the <code>INSTALL4J_JAVA_HOME</code> value
+            </li>
+        </ul>
+    </div>
+    
+    <p class="system-info"><small>Tested on: Linux Mint 22.2 (Zara), based on Ubuntu 24.04</small></p>
+</section>
 
 
-                    <section id="setting-rew" class="content-section">
-                        <h2>Setting up REW</h2>
 
-                        <p>Here we talk about setting up REW with audio card and Nosey MEMS</p>
-                        <p>Making sure everything works, images here and there.</p>
-
-                    </section>
-
-
-
-                    <section id="sweeping" class="content-section">
-                        <h2>Doing a frequency sweep</h2>
-                        <p>This is a critical step in ensuring your Nosey MEMS works as intended. Since all microphones vary unit to unit, it is vital to determine if our MEMS are up to specification.</p>
-                        
-                        <p>Images of the process in REW.</p>
-
-                        <p>Ponder the results and conclude.</p>
-
-                        <p>You are now ready to perform <a href="nasometry.html#hero">nasometry</a>.</p>
-
-                    </section>
+<section id="frequency-response" class="content-section">
+    <h2>Frequency Response Testing</h2>
+    
+    <p>This step validates the Nosey MEMS microphones by verifying that both MEMS elements (L-Nasality and R-Orality) have matched frequency responses. Since microphones vary unit to unit, this verification ensures the device meets specifications.</p>
+    
+    <h3>Test Setup</h3>
+    
+    <p>A frequency sweep measurement is performed in REW <strong>without SPL calibration</strong>. The goal is to compare the relative frequency response between the left and right microphones, not to measure absolute sound pressure levels.</p>
+    
+    <div class="step">
+        <h4>Performing the Sweep</h4>
+        <ol style="padding-left: 2em; margin-left: 1em;">
+            <li>In REW, navigate to <strong>Measure</strong> and select the configured audio interface</li>
+            <li>Choose the <strong>frequency sweep</strong> measurement type</li>
+            <li>Set the sweep range (typically 20 Hz - 20 kHz)</li>
+            <li>Position the Nosey MEMS at a consistent distance from the studio monitors</li>
+            <li>Run the measurement for both L and R channels</li>
+        </ol>
+    </div>
+    
+    <h3>Results</h3>
+    
+    <p>The plots below compare the frequency response of the L (orange) and R (blue) microphones with different smoothing levels applied:</p>
+    
+    <div class="step">
+        <h4>1/1 Octave Smoothing</h4>
+        <img src="img/LR_Nosey_MEMS_test_1_separated_cropped_1-1smoothing.png" alt="Frequency response with 1/1 octave smoothing" style="max-width: 100%; height: auto; border-radius: 8px; margin: 1rem 0;">
+        <p>With maximum smoothing (1/1 octave), the frequency response shows:</p>
+        <ul>
+            <li><strong>Clear bump at ~100 Hz</strong> — likely room mode or monitor resonance</li>
+            <li><strong>Significant dip at ~550 Hz</strong> — possible cancellation or room null</li>
+            <li><strong>Rising response from 8 kHz onwards</strong> — common MEMS characteristic</li>
+        </ul>
+        <p><em>Note: The L and R traces are nearly identical, separated slightly for visibility.</em></p>
+    </div>
+    
+    <div class="step">
+        <h4>1/12 Octave Smoothing</h4>
+        <img src="img/LR_Nosey_MEMS_test_1_separated_cropped_1-12smoothing.png" alt="Frequency response with 1/12 octave smoothing" style="max-width: 100%; height: auto; border-radius: 8px; margin: 1rem 0;">
+        <p>With reduced smoothing (1/12 octave), additional detail becomes visible:</p>
+        <ul>
+            <li><strong>Peak at 100 Hz remains clear</strong></li>
+            <li><strong>Dip at 550 Hz still present</strong></li>
+            <li><strong>Combing artifacts from 3 kHz onwards</strong> — likely due to reflections</li>
+        </ul>
+        <p>The increased detail reveals environmental factors, but the L and R microphones continue to track each other remarkably well.</p>
+    </div>
+    
+    <h3>Understanding the Imperfections</h3>
+    
+    <p>The frequency response deviations observed are expected given the test conditions:</p>
+    <ul>
+        <li><strong>Uncalibrated studio monitors</strong> — frequency production response is unknown</li>
+        <li><strong>Desktop placement</strong> — monitors on the desk cause reflections and combing</li>
+        <li><strong>Untreated room</strong> — no acoustic treatment or controlled environment</li>
+        <li><strong>No SPL calibration</strong> — relative measurements only, not absolute levels</li>
+    </ul>
+    
+    <h3>Interpretation</h3>
+    
+    <p><strong>The two MEMS microphones (L-Nasality and R-Orality) demonstrate well-matched characteristics.</strong></p>
+    
+    <p>Despite environmental imperfections, both microphones exhibit nearly identical frequency responses. This matching is critical for nasalometry, which calculates the <strong>ratio</strong> between nasal and oral sound energy:</p>
+    
+    <div class="code-block"><code>Nasalance = An / (Ao + An)</code></div>
+    <br>
+    
+    <p>Since both microphones experience the same acoustic environment and have matched responses, room-induced anomalies affect both channels equally and cancel out in the ratio calculation.</p>
+    
+    <p><strong>For nasality measurements based on energy ratios, this configuration is adequate.</strong> Advanced calibration and a specialized sound booth would be required for absolute SPL measurements, but for relative nasalance calculations, the Nosey MEMS meets the necessary specifications.</p>
+    
+    <p class="next-step">The device is now validated and ready for <a href="nasometry.html#hero">nasometry measurements</a>.</p>
+</section>
 
 
 

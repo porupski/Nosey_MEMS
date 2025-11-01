@@ -240,6 +240,18 @@
                             <h4>WARNING!</h4>
                             <p>Please note that the Zener diode D3 is placed WRONG. Hopefully the manufacturer will pick up on this, otherwise manual rework will be needed.</p>-->
                         </div> 
+
+                        <div style="margin: 2rem auto; text-align: center;">
+                            <figure style="max-width: 800px; margin: 0 auto;">
+                                <img src="img/Nosey_MEMS_manufactured.jpeg" 
+                                    alt="Nosey MEMS devices as received from manufacturer" 
+                                    style="width: 100%; height: auto; border-radius: 8px;">
+                                <figcaption style="margin-top: 0.5rem;">
+                                    <strong>Figure 2.</strong> Nosey MEMS PCBs as received from the manufacturer, fully assembled and ready for XLR jack soldering.
+                                </figcaption>
+                            </figure>
+                        </div>
+
                         <div>
                             This concludes the ordering process. If all went well, your Nosey MEMS is being manufactured and you will receive it fully and properly assembled. When it arrives, move to <a href="#soldering-sec">Soldering</a>. 
                         </div>
@@ -247,60 +259,66 @@
                     </section>
 
 
-                    <section id="soldering-sec" class="content-section">
-                        <div>
-                            <h2 id="soldering">Soldering</h2>
-                            <p>The only components that have to be soldered upon receiving the finished board are the two XLR3 audio jacks.</p>
+ <section id="soldering-sec" class="content-section">
+    <div>
+        <h2 id="soldering">Soldering</h2>
+        <p>The only components that require soldering upon receiving the assembled board are the two XLR3 audio jacks.</p>
 
-                            <div>
-                                <ul>
-                                    <li>Place the audio jacks on their designated place on the PCB (J1, J2), as seen in <a href="#pcb_assembly_placement">Figure 2</a> (coming soon).</li>
-                                    <li>Solder the joints with solder and flux.</li>
-                                    <li>Verify all connections are mechanically and electronically sound.</li>
-                                    <li>Move to Testing and Verification.</li>
-                                </ul>
+        <div>
+            <ul>
+                <li>Place the audio jacks in their designated positions on the PCB (J1, J2), as shown in the images below</li>
+                <li>Solder all pins with appropriate solder and flux</li>
+                <li>Verify all connections are mechanically and electrically sound</li>
+                <li>Proceed to Testing and Verification</li>
+            </ul>
+        </div>
 
-                            <div>
-                            <figure>
-                                <!-- <img id="pcb_assembly_placement" 
-                                    src="img/Nosey_MEMS_PCBA-first-ed_oct2025.png" 
-                                    alt="Nosey MEMS PCB top assembly component placements" 
-                                    width="800"> -->
-                                <figcaption>Figure 2. Component orientation and placement visualization during the ordering process.</figcaption>
-                            </figure>
-                            </div>
+        <div style="display: flex; gap: 2rem; justify-content: center; align-items: flex-start; margin: 2rem 2rem; flex-wrap: wrap;">
+            <figure style="flex: 1; min-width: 300px; max-width: 45%; margin: 0;">
+                <img src="img/Nosey_MEMS_soldering_1.jpeg" 
+                     alt="XLR3 jack placement on Nosey MEMS PCB" 
+                     style="width: 100%; height: auto; border-radius: 8px;">
+                <figcaption style="text-align: center; margin-top: 0.5rem;">
+                    <strong>Figure 3a.</strong> XLR3 jack placement on the PCB (J1: L-Nasality, J2: R-Orality).
+                </figcaption>
+            </figure>
 
-                            <div>
-                                This concludes the soldering process. If all went well, your Nosey MEMS is now ready to be tested. If you are interested in certain mods, see <a href="#mods">Modifications</a>, otherwise move to <a href="#testing">Testing</a>. 
-                            </div>
+            <figure style="flex: 1; min-width: 300px; max-width: 45%; margin: 0;">
+                <img src="img/Nosey_MEMS_soldering_2.jpeg" 
+                     alt="Properly soldered XLR3 joints on Nosey MEMS" 
+                     style="width: 100%; height: auto; border-radius: 8px;">
+                <figcaption style="text-align: center; margin-top: 0.5rem;">
+                    <strong>Figure 3b.</strong> Completed solder joints. All pins should have smooth, shiny solder fillets.
+                </figcaption>
+            </figure>
+        </div>
 
-                            </div>
+        <p><em><strong>Note:</strong> The silkscreen label "Nosality" visible in the images was corrected to "Nasality" in the design files, but this typo was caught after the boards were sent to manufacturing. Future revisions will display the correct spelling.</em></p>
 
-                            <p></p>
+        <div>
+            <p>This concludes the soldering process. If all went well, the Nosey MEMS is now ready for testing. For optional modifications, see <a href="#mods">Modifications</a> below. Otherwise, proceed to <a href="#testing">Testing</a>.</p>
+        </div>
 
-                            <h2 id="mods">Modifications</h2>
-                            <h3>Jackless Nosey MEMS</h3>
-                            <p>Alternatively, should sourcing the jacks be difficult or there isn't a need for jacks, one may solder the audio cable directly to the PCB, provided additional reinforcments are made to the cable (potencially zip-tied to the 3D printed Housing?).</p>
+    </div>
 
-                            <p>Figure</p>
+    <p></p>
 
-                            <p>3D print adapter to allow for jackless mounting of the wires?</p>
+    <h2 id="mods">Modifications</h2>
+    <p><em>The following modifications are optional and may be added in future revisions of this guide.</em></p>
 
+    <h3>Jackless Nosey MEMS</h3>
+    <p>If sourcing XLR3 jacks is difficult or not necessary for the application, audio cables can be soldered directly to the PCB pads. Additional strain relief should be added (e.g., zip-ties to the 3D-printed housing) to prevent damage to solder joints from cable movement.</p>
+    <p><em>Figure and 3D-printed cable adapter design to be added.</em></p>
 
-                            <h3>Shield to Ground</h3>
-                            <p>Contested topic. Will do tests.</p>
-                            
-                            <p>Figure</p>
+    <h3>Shield to Ground Connection</h3>
+    <p>Connecting the cable shield to ground is a debated topic in audio applications. This modification will be tested and documented in a future update with measured results showing any impact on noise floor and interference rejection.</p>
+    <p><em>Measurement results and implementation guide to be added.</em></p>
 
+    <h3>5V Operation</h3>
+    <p>For advanced users only. The Nosey MEMS can potentially be modified to operate on 5V instead of the standard phantom power supply. This requires circuit modifications and is only recommended for users experienced with analog audio circuit design.</p>
+    <p><em>Schematic modifications and performance comparison to be added.</em></p>
 
-                            <h3>5V Operation</h3>
-                            <p>For advanced users only.</p>
-                            
-                            <p>Figure</p>
-
-
-                        </div>
-                    </section>
+</section>
 
 
 
