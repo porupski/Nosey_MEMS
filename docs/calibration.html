@@ -169,7 +169,7 @@
     <h2>Frequency Response Testing</h2>
     
     <p>This step validates the Nosey MEMS microphones by verifying that both MEMS elements (L-Nasality and R-Orality) have matched frequency responses. Since microphones vary unit to unit, this verification ensures the device meets specifications.</p>
-    
+
     <h3>Test Setup</h3>
     
     <p>A frequency sweep measurement is performed in REW <strong>without SPL calibration</strong>. The goal is to compare the relative frequency response between the left and right microphones, not to measure absolute sound pressure levels.</p>
@@ -234,7 +234,7 @@
     
     <p>Since both microphones experience the same acoustic environment and have matched responses, room-induced anomalies affect both channels equally and cancel out in the ratio calculation.</p>
     
-    <p><strong>For nasality measurements based on energy ratios, this configuration is adequate.</strong> Advanced calibration and a specialized sound booth would be required for absolute SPL measurements, but for relative nasalance calculations, the Nosey MEMS meets the necessary specifications.</p>
+    <p><strong>For nasality measurements based on energy ratios, this configuration should be adequate.</strong> Advanced calibration and a specialized sound booth would be required for absolute SPL measurements, but for relative nasalance calculations, the Nosey MEMS seems to meet the necessary specifications.</p>
     
     <p class="next-step">The device is now validated and ready for its <a href="3dprinting.html#hero">3D printed parts</a>, or if using as-is, <a href="nasometry.html#hero">nasometry measurements</a>.</p>
 </section>
@@ -244,6 +244,11 @@
     <h2>Noise Floor and Resonance Characteristics</h2>
     
     <p>Beyond frequency response matching, understanding the noise floor and self-resonance behavior of the MEMS microphones provides insight into the device's practical performance limits and acoustic characteristics.</p>
+
+    <div class="disclaimer">
+        <h4>NOTE:</h4>
+        The analysis was accidentally carried on a modified Nosey MEMS, where Nasality L-channel has 10k harvesting resistors, while Orality R-channel has the stock 15k resistors. In theory, this impact should be minimal. New tests will be run at a later date.
+    </div> 
     
     <h3>Noise Floor Analysis</h3>
     
