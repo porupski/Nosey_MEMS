@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active Development - Nosey MEMS</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="shared/load-components.js"></script>
+</head>
+<body>
+    <!-- Navigation placeholder -->
+    <div id="navbar-placeholder" style="position: sticky; top: 0; z-index: 100;"></div>
+
+    <section class="hero">
+        <div class="container">
+            <h1><b>Active Development Thread</b></h1>
+            <p>Follow the latest tests on Nosey MEMS performance.</p>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="content-grid">
+                <div class="main-column">
+
+<section id="starting-off" class="content-section">
+  <h2>Starting off right</h2>
+  <p>Here I will post the latest tests and findings regarding Nosey MEMS performance.</p>
+
+  <p>List of tests:</p>
+  <ul>
+    <li><span role="img" aria-label="test tube">🧪</span> <a href="development.html#1-noise-resonance">Noise resonance (varying harvesting resistors)</a></li>
+  </ul>
+</section>
+
+
+
+
+
+
+<section id="1-noise-resonance" class="content-section">
+    <h2>Noise Floor and Resonance Characteristics</h2>
+    
+    <p>Beyond frequency response matching, understanding the noise floor and self-resonance behavior of the MEMS microphones provides insight into the device's practical performance limits and acoustic characteristics.</p>
+
+    <p>This test was carried out using two different sets of harvesting resistors (R,R5 are 10k, while R11,R12 are stock 15k). The reason wasgkitarag102030
+        
+    </p>
+
+    <div class="disclaimer">
+        <h4>NOTE:</h4>
+        The analysis was carried on a modified Nosey MEMS, where Nasality L-channel has 10k harvesting resistors, while Orality R-channel has the stock 15k resistors. In theory, this impact should be minimal. New tests will be run at a later date.
+    </div> 
+    
+    <h3>Noise Floor Analysis</h3>
+    
+    <p>The noise floor spectrum reveals the baseline electronic noise present in the microphone system when no acoustic signal is present. Both L and R channels exhibit similar characteristics:</p>
+    
+    <div class="step">
+        <div style="margin: 1rem 0;">
+            <img src="img/audio_plots/NoseyMEMS-L-noise.png" alt="Left channel noise floor spectrum" style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 1rem;">
+            <img src="img/audio_plots/NoseyMEMS-R-noise.png" alt="Right channel noise floor spectrum" style="max-width: 100%; height: auto; border-radius: 8px;">
+        </div>
+        
+        <p>The noise spectrum shows approximately <strong>-51 dB at 50 Hz</strong>, rolling off smoothly to <strong>-90 dB between 2-4 kHz</strong>. </p>
+        <!-- <p>This performance is typical for quality MEMS microphones with low-noise preamplification. The elevated low-frequency noise is characteristic of 1/f (flicker) noise common in electronic systems, while the roll-off indicates effective high-frequency noise suppression in the signal chain. For speech nasometry applications where energy is concentrated between 300 Hz and 3 kHz, this noise floor provides excellent dynamic range.</p> -->
+    </div>
+    
+    <!-- <h3>Self-Resonance Testing</h3>
+    
+    <p>To investigate potential acoustic resonances in the microphone capsules and their mounting, a feedback test was performed by bringing headphones close to the microphones until acoustic feedback occurred. While this method lacks the precision of controlled impedance tube measurements, it reveals resonant peaks in the system:</p>
+    
+    <ul>
+        <li><strong>Left channel (L-Nasality):</strong> Primary resonance peak at <strong>4.9 kHz</strong> with fading harmonics visible around 10 kHz and 14.9 kHz</li>
+        <li><strong>Right channel (R-Orality):</strong> Primary resonance peak at <strong>14.7 kHz</strong> with no clear harmonics</li>
+    </ul>
+    
+    <p>The difference in resonant frequencies between channels is likely attributable to uncontrolled hand-held positioning of the headphones during testing rather than significant variation between the microphones themselves. To obtain a more representative characterization, averaged measurements were collected over multiple feedback instances.</p> -->
+    
+    <h3>Averaged Resonance Spectrum</h3>
+    
+    <p>Averaging the entire test session reduces the influence of transient positioning variations and reveals the consistent acoustic signature of both channels:</p>
+    
+    <div class="step">
+        <div style="margin: 1rem 0;">
+            <img src="img/audio_plots/NoseyMEMS-L-AVGresonance.png" alt="Left channel averaged resonance spectrum" style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 1rem;">
+            <img src="img/audio_plots/NoseyMEMS-R-AVGresonance.png" alt="Right channel averaged resonance spectrum" style="max-width: 100%; height: auto; border-radius: 8px;">
+        </div>
+        
+        <p>Both channels demonstrate remarkably similar patterns:</p>
+        <ul>
+            <li><strong>Elevated plateau at -48 dB from 50 Hz to 500 Hz</strong> — combination of residual noise floor and low-frequency acoustic coupling</li>
+            <li><strong>Roll-off to -78 dB around 2 kHz</strong> — transition from noise-dominated to resonance-dominated spectrum</li>
+            <li><strong>Resonance peaks at approximately 5 kHz, 9 kHz, 15 kHz, and 21 kHz</strong> — acoustic resonances of the MEMS capsule cavity and mounting structure?</li>
+        </ul>
+    </div>
+    
+    <!-- <h3>Physical Interpretation</h3>
+    
+    <p>The observed resonance peaks are expected phenomena arising from the physical geometry of the MEMS microphone system. Several factors contribute to these characteristics:</p>
+    
+    <p><strong>MEMS Capsule Acoustics:</strong> The MEMS microphone consists of a small cavity behind the diaphragm, typically creating Helmholtz resonances in the 5-20 kHz range. These resonances are engineered into the capsule design to extend high-frequency response, which explains the rising response above 8 kHz noted in the frequency sweep measurements.</p>
+    
+    <p><strong>Mounting and Port Geometry:</strong> The acoustic port through which sound enters the microphone, combined with any protective mesh or windscreen, forms additional resonant structures. The multiple peaks observed (5 kHz, 9 kHz, 15 kHz, 21 kHz) suggest standing waves and cavity modes within the microphone housing and PCB-mounted structure.</p>
+    
+    <p><strong>Signal Chain Contribution:</strong> While the TI dual op-amp configuration (buffer + inverting buffer for balanced output) provides clean amplification with excellent CMRR (Common-Mode Rejection Ratio), it does not introduce these resonances — they are acoustic in nature. The 48V phantom power through balanced cables into the Behringer UCA404 ensures adequate headroom and low noise, allowing these subtle acoustic characteristics to be clearly resolved.</p>
+    
+    <p><strong>Matched Behavior:</strong> The critical finding is that both L and R channels exhibit nearly identical resonance patterns, confirming matched acoustic behavior. For nasalance ratio calculations, this matching ensures that any frequency-dependent characteristics affect both nasal and oral measurements equally, maintaining measurement accuracy across the frequency spectrum.</p>
+    
+    <p class="next-step">With noise floor and resonance characteristics documented, the microphones demonstrate suitable performance for speech nasometry applications where most energy lies below 5 kHz.</p> -->
+
+
+</section>
+
+
+
+
+
+                    
+
+                </div>
+                
+                <!-- Sidebar placeholder -->
+                <aside class="sidebar" id="sidebar-placeholder"></aside>
+                
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer placeholder -->
+    <div id="footer-placeholder"></div>
+
+</body>
+</html>
