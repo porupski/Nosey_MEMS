@@ -1,0 +1,20 @@
+# ---------- KiCad Build Artifacts ----------
+*-backups/
+*.BACKUP.*
+*.bak
+*.kicad_prl
+_autosave-*
+*.000
+fp-info-cache
+sym-lib-table.bak
+*.lck
+
+# ---------- Fab Outputs ----------
+# Keep production folder, ignore gerbers elsewhere
+gerbers/
+fabrication-toolkit-options.json
+
+# ---------- Editor / OS ----------
+.vscode/
+*.swp
+.DS_Store
