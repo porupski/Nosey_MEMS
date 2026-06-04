@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manufacturing Guide - Nosey MEMS</title>
+    <title>Manufacturing Guide - Nosey MEMS Mk2</title>
     <link rel="stylesheet" href="style.css">
     <script src="shared/load-components.js"></script>
 </head>
@@ -15,7 +15,7 @@
     <section id="hero" class="hero">
         <div class="container">
             <h1><b>Manufacturing Guide</b></h1>
-            <p>Step-by-step instructions for building your Nosey MEMS Nasometer</p>
+            <p>Step-by-step instructions for building your Nosey MEMS Mk2</p>
         </div>
     </section>
 
@@ -25,25 +25,26 @@
                 <div class="main-column">
                     <section id="starting-off" class="content-section">
                         <h2>Starting off right</h2>
-                        <p>This guide will walk you through the complete manufacturing process for the Nosey MEMS Nasometer, from ordering PCBs to final assembly and testing.</p>
+                        <p>This guide walks you through the complete manufacturing process for the Nosey MEMS Mk2, from ordering PCBs to final assembly and testing. Remember that a full nasometer needs <b>two</b> Mk2 boards — one for the nasal channel and one for the oral channel — so order in pairs.</p>
 
                         <p>Currently, the full PCB manufacturing and assembly has only been tried via JLCPCB. All present information is for their specific ordering steps. If you are using a different manufacturer (or even this one at a later date), please adjust accordingly!</p>
 
                         <p>All the files required for manufacture will be available at the GitHub repo after quality control.</p>
 
-                        <p>Nosey MEMS is designed to be manufactured as simply, as easily, and as cheaply as possible.</p> 
+                        <p>Nosey MEMS Mk2 is designed to be manufactured as simply, as easily, and as cheaply as possible.</p>
                         <ul>
-                            <li>The PCB is less than 100x100mm (88x60mm) in size, keeping the PCB manufacturing cost low as well as the final device footprint.</li>
+                            <li>The PCB is small (25 × 50 mm), keeping both the PCB manufacturing cost and the final device footprint low.</li>
                             <li>Assembly is only done on the Top layer, simplifying the process.</li>
-                            <li>All components, excluding the XLR3 audio jacks, are assembled for us, minimizing post-assembly additional work.</li>
+                            <li>All top-side components, excluding the XLR3 jack and the four bottom-side electrolytic capacitors, are assembled for us, minimizing post-assembly work.</li>
                             <li>Automatic assembly allows us to pick smaller part packages, lowering the parts cost and allowing for a smaller footprint, albeit with a possible increase in difficulty for manual rework.</li>
-                            <li>The use of MEMS microphones allows us to circumvent a lot of obstacles in microphone design and manufacture—from sourcing parts to soldering—while keeping the cost low at an acceptable frequency range.</li>
+                            <li>The use of a MEMS microphone circumvents a lot of obstacles in microphone design and manufacture — from sourcing parts to soldering — while keeping the cost low at an acceptable frequency range.</li>
+                            <li>A fully built Mk2 board comes out to roughly <b>€20</b>, and a batch of 10 boards with assembly (excluding the manually fitted parts) is about <b>€65</b>.</li>
                         </ul>
-                        
+
                     </section>
 
                     <section id="process" class="content-section">
-                        <h2>The Process of Acquiring a Nosey MEMS</h2>
+                        <h2>The Process of Acquiring a Nosey MEMS Mk2</h2>
                         <p>Step by step.</p>
 
                         <h3>Getting the Production Files</h3>
@@ -52,20 +53,18 @@
                             <ul>
                                 <li>the <b>.zip file</b> containing the PCB Gerber files,</li>
                                 <li>the <b>bom.csv</b> file containing the Bill of Materials, and</li>
-                                <li>the <b>positions.csv</b> file containing the component placements.</li>
+                                <li>the <b>positions.csv</b> file containing the component placements (CPL).</li>
                             </ul>
                         All three are <b>critical</b> for manufacture.</p>
 
-                        <p>Find a PCB fabrication and component assembly manufacturer and follow the general ordering process. The rest of the guide will be referencing the process of a particular manufacturer.</p>
-                        
-                        <h3 id="pcb-fabrication">PCB Fabrication</h3>
-                        <p>Upload the .zip Gerber files. Choose fabrication options to your liking.</p>
-                        
-                        <div>
-                        <p>Standard fabrication options are in this <a href="#table_pcb_fab_options"> Table 1</a>:</p>
+                        <p>Find a PCB fabrication and component assembly manufacturer and follow the general ordering process. The rest of the guide references the process of a particular manufacturer.</p>
 
+                        <h3 id="pcb-fabrication">PCB Fabrication</h3>
+                        <p>Upload the .zip Gerber files. Choose fabrication options to your liking. The settings used for the verified Mk2 run are in <a href="#table_pcb_fab_options">Table 1</a>.</p>
+
+                        <div>
                         <table id="table_pcb_fab_options" class="spec-table">
-                            <caption class="table-caption">Table 1. PCB Fabrication Settings</caption>
+                            <caption class="table-caption">Table 1. PCB Fabrication Settings (Gerber: Nosey_MEMS_Mk2_iv2.1_Y49)</caption>
                             <thead>
                                 <tr>
                                     <th>Spec</th>
@@ -75,7 +74,7 @@
                             <tbody>
                                 <tr style="border-bottom: 3px double #e2e8f0;">
                                     <td>Dimensions (if using the source PCB)</td>
-                                    <td>88 mm × 60 mm</td>
+                                    <td>25 mm × 50 mm</td>
                                 </tr>
                                 <tr>
                                     <td>Material Type</td>
@@ -91,7 +90,7 @@
                                 </tr>
                                 <tr>
                                     <td>Surface Finish</td>
-                                    <td>HASL (with lead)</td>
+                                    <td>Lead-free HASL</td>
                                 </tr>
                                 <tr>
                                     <td>Outer Copper Weight</td>
@@ -102,19 +101,36 @@
                                     <td>Tented</td>
                                 </tr>
                                 <tr>
+                                    <td>PCB Color</td>
+                                    <td>Blue</td>
+                                </tr>
+                                <tr>
+                                    <td>Silkscreen</td>
+                                    <td>White</td>
+                                </tr>
+                                <tr>
+                                    <td>Deburring / Edge Rounding</td>
+                                    <td>Yes</td>
+                                </tr>
+                                <tr>
                                     <td>Board Outline Tolerance</td>
                                     <td>±0.2 mm</td>
                                 </tr>
+                                <tr>
+                                    <td>Confirm Production File</td>
+                                    <td>Yes</td>
+                                </tr>
                             </tbody>
                         </table>
-
-
                         </div>
+
+                        <p>The only options changed from the manufacturer's defaults were: <b>blue</b> solder mask, <b>lead-free</b> HASL surface finish, <b>confirm production file</b>, and <b>deburred / edge-rounded</b> edges. Everything else was left at the standard 2-layer, 1.6 mm defaults.</p>
+
                         <h3 id="bill-of-materials">Bill of Materials</h3>
-                        <p>The list of the chosen components for the first assembly test run can be found in <a href="#bom-table"> Table 2</a>.</p>
+                        <p>The top-side, machine-assembled components are listed in <a href="#bom-table">Table 2</a>. This is a 13-line BOM (13 distinct parts), all confirmed for the verified run.</p>
 
                         <table id="bom-table" class="spec-table">
-                            <caption class="table-caption">Table 2. Bill of Materials for assembly.</caption>
+                            <caption class="table-caption">Table 2. Top-side Bill of Materials (machine assembled).</caption>
                             <thead>
                                 <tr>
                                     <th>Component</th>
@@ -127,133 +143,161 @@
                                 <!-- Resistors (smallest to largest) -->
                                 <tr>
                                     <td>47R</td>
-                                    <td>R13, R14, R6, R7</td>
+                                    <td>R6, R7</td>
                                     <td>0805</td>
                                     <td>C17714</td>
                                 </tr>
                                 <tr>
                                     <td>470R</td>
-                                    <td>R15</td>
+                                    <td>R10</td>
                                     <td>0805</td>
                                     <td>C17710</td>
                                 </tr>
                                 <tr>
                                     <td>3k</td>
-                                    <td>R10, R2, R3, R9</td>
+                                    <td>R2, R3</td>
                                     <td>0805</td>
                                     <td>C17661</td>
                                 </tr>
                                 <tr style="border-bottom: 3px double #e2e8f0;">
                                     <td>15k</td>
-                                    <td>R1, R11, R12, R16, R17, R4, R5, R8</td>
+                                    <td>R1, R4, R5, R8, R9</td>
                                     <td>0805</td>
                                     <td>C17475</td>
                                 </tr>
                                 <!-- Capacitors (smallest to largest) -->
                                 <tr>
                                     <td>10nF</td>
-                                    <td>C15</td>
+                                    <td>C10</td>
                                     <td>0805</td>
                                     <td>C1710</td>
                                 </tr>
                                 <tr>
                                     <td>22nF</td>
-                                    <td>C10, C4, C5, C9</td>
+                                    <td>C5, C6</td>
                                     <td>0805</td>
                                     <td>C1729</td>
                                 </tr>
                                 <tr>
                                     <td>2.2uF</td>
-                                    <td>C1, C11, C12, C14, C6</td>
+                                    <td>C1, C4, C9</td>
                                     <td>0805</td>
                                     <td>C377773</td>
                                 </tr>
-                                <tr>
-                                    <td>10uF</td>
-                                    <td>C16, C17, C19</td>
-                                    <td>0805</td>
-                                    <td>C15850</td>
-                                </tr>
                                 <tr style="border-bottom: 3px double #e2e8f0;">
-                                    <td>47uF</td>
-                                    <td>C13, C18, C2, C3, C7, C8</td>
-                                    <td>CP_Elec_6.3x7.7</td>
-                                    <td>C2887275</td>
+                                    <td>10uF</td>
+                                    <td>C11, C12, C13</td>
+                                    <td>0805</td>
+                                    <td>C440198</td>
                                 </tr>
                                 <!-- Diodes -->
                                 <tr>
                                     <td>1N4148</td>
-                                    <td>D1, D2, D4</td>
+                                    <td>D1, D3</td>
                                     <td>D_SOD-323</td>
                                     <td>C2128</td>
                                 </tr>
                                 <tr style="border-bottom: 3px double #e2e8f0;">
-                                    <td>1SMA4746A</td>
-                                    <td>D3</td>
+                                    <td>1SMA4746A (18V Zener)</td>
+                                    <td>D2</td>
                                     <td>D_SMA</td>
-                                    <td>C330245</td>
+                                    <td>C22387572</td>
                                 </tr>
                                 <!-- Other components -->
                                 <tr>
                                     <td>OPA1652</td>
-                                    <td>U1, U2</td>
+                                    <td>U1</td>
                                     <td>SOIC-8_3.9x4.9mm_P1.27mm</td>
                                     <td>C30025</td>
                                 </tr>
                                 <tr>
                                     <td>PJ71K30SC</td>
-                                    <td>U3</td>
+                                    <td>U2</td>
                                     <td>SOT-23</td>
                                     <td>C411738</td>
                                 </tr>
                                 <tr>
                                     <td>NA-FFA381-A10-1</td>
-                                    <td>MK1, MK2</td>
-                                    <td>2.75x1.85x1.0mm Top Port</td>
+                                    <td>MK1</td>
+                                    <td>2.75×1.85×1.0mm Top Port</td>
                                     <td>C50275774</td>
                                 </tr>
                             </tbody>
                         </table>
-                        
-                        <p>These are the chosen components available at the time (October2025).</p>
-                        <p>Please adjust according to your need and your manufacturer.</p>
+
+                        <p>These are the chosen components available at the time. Where possible, select the <b>Basic</b> parts the manufacturer offers automatically; the OPA1652 (U1) is an <b>Extended</b> part and may need to be located separately.</p>
+                        <p>Part numbers drift over time and between suppliers. Please adjust according to your need and your manufacturer.</p>
+
+                        <h4>Bottom-side / manually fitted parts</h4>
+                        <p>The components in <a href="#manual-table">Table 3</a> are <b>not</b> machine-assembled. They are sourced separately and hand-soldered after the boards arrive (see <a href="#soldering">Soldering</a>).</p>
+
+                        <table id="manual-table" class="spec-table">
+                            <caption class="table-caption">Table 3. Manually fitted parts (bottom side).</caption>
+                            <thead>
+                                <tr>
+                                    <th>Component</th>
+                                    <th>Designator</th>
+                                    <th>Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>47uF 63V electrolytic</td>
+                                    <td>C2, C3, C7, C8</td>
+                                    <td>Four through-hole electrolytic caps on the bottom side</td>
+                                </tr>
+                                <tr>
+                                    <td>XLR3 jack</td>
+                                    <td>J1</td>
+                                    <td>Combined phantom power input and balanced audio output</td>
+                                </tr>
+                            </tbody>
+                        </table>
 
 
                         <h3 id="assembly">Assembly Instructions</h3>
-                        <p>After confirming the BOM file, the component placements need to be verified next. Sometimes, the orientation of components may be wrong. Carefully inspect and make sure all polarities are correct. The assembly placement for the first run is shown in <a href="#pcb_assembly_placement">Figure 1</a>.</p>
+                        <p>After confirming the BOM file, the component placements (CPL) need to be verified next. Sometimes the orientation of components may be wrong. Carefully inspect and make sure all polarities are correct. The assembly placement for the verified run is shown in <a href="#pcb_assembly_placement">Figure 1</a>.</p>
 
                         <figure>
-                            <img id="pcb_assembly_placement" 
-                                src="img/Nosey_MEMS_PCBA-first-ed3.2_oct2025.png" 
-                                alt="Nosey MEMS PCB top assembly component placements" 
-                                width="800">
+                            <img id="pcb_assembly_placement"
+                                src="img/fab_Nosey_MEMS_Mk2_PCBA_placement.png"
+                                alt="Nosey MEMS Mk2 PCB top assembly component placements"
+                                width="300">
                             <figcaption>Figure 1. Component orientation and placement visualization during the ordering process.</figcaption>
                         </figure>
 
-
                         <div class="disclaimer">
                             <h4>NOTE:</h4>
-                            <p>If the manufacturer's viewer doesn't show the model for the MEMS microphones (MK1, MK2), the manufacturer should resolve this. Otherwise, a soldering station and advanced SMD soldering skills will be needed to solder on the MEMS microphones.</p>
-                            <p>If a component is placed in the wrong orientation, the manufacturer typically runs a Design for manufacturability (DFM) analysis to catch such mistakes. While this provides a useful safety net, it's best practice to ensure all components are oriented correctly before submitting the design.</p>
+                            <p>When uploading the BOM and CPL, the assembler may flag the following: <em>"TP1, H1, H2, JP1 designators don't exist in the BOM file."</em> This is expected — TP1 is a test pad, H1/H2 are baffle mounting holes, and JP1 is the shield-to-ground jumper. None of them are placed parts, so you can simply continue.</p>
+                            <p>If the manufacturer's viewer doesn't show the model for the MEMS microphone (MK1), the manufacturer should resolve this. Otherwise, a soldering station and advanced SMD soldering skills will be needed to solder the MEMS microphone manually on.</p>
+                            <p>If a component is placed in the wrong orientation, the manufacturer typically runs a Design for Manufacturability (DFM) analysis to catch such mistakes. While this provides a useful safety net, it's best practice to ensure all components are oriented correctly before submitting the design.</p>
+                        </div>
 
-                        <!-- <div class="disclaimer">
-                            <h4>WARNING!</h4>
-                            <p>Please note that the Zener diode D3 is placed WRONG. Hopefully the manufacturer will pick up on this, otherwise manual rework will be needed.</p>-->
-                        </div> 
+                        <p>For the verified run, the PCBA was ordered with the following parameters:</p>
+                        <ul>
+                            <li><b>PCBA Type:</b> Economic</li>
+                            <li><b>Assembly Side:</b> Top side</li>
+                            <li><b>PCBA Qty:</b> 10</li>
+                            <li><b>Tooling holes:</b> Added by the manufacturer</li>
+                            <li><b>Confirm Parts Placement:</b> Yes</li>
+                            <li><b>Solder Paste:</b> High temp</li>
+                            <li><b>Reflow:</b> Nitrogen reflow soldering (standard for Economic)</li>
+                            <li><b>Packaging:</b> Antistatic bubble film</li>
+                        </ul>
 
                         <div style="margin: 2rem auto; text-align: center;">
                             <figure style="max-width: 800px; margin: 0 auto;">
-                                <img src="img/Nosey_MEMS_manufactured.jpeg" 
-                                    alt="Nosey MEMS devices as received from manufacturer" 
+                                <img src="img/Nosey_MEMS_Mk2_manufactured.jpeg"
+                                    alt="Nosey MEMS Mk2 boards as received from manufacturer"
                                     style="width: 100%; height: auto; border-radius: 8px;">
                                 <figcaption style="margin-top: 0.5rem;">
-                                    <strong>Figure 2.</strong> Nosey MEMS PCBs as received from the manufacturer, fully assembled and ready for XLR jack soldering.
+                                    <strong>Figure 2.</strong> Nosey MEMS Mk2 PCBs as received from the manufacturer, top side assembled and ready for the bottom-side electrolytics and XLR jack.
                                 </figcaption>
                             </figure>
                         </div>
 
                         <div>
-                            This concludes the ordering process. If all went well, your Nosey MEMS is being manufactured and you will receive it fully and properly assembled. When it arrives, move to <a href="#soldering-sec">Soldering</a> the XLR jacks. 
+                            This concludes the ordering process. If all went well, your Nosey MEMS Mk2 boards are being manufactured and will arrive with the top side fully assembled. When they arrive, move to <a href="#soldering-sec">Soldering</a> the bottom-side parts.
                         </div>
 
                     </section>
@@ -262,11 +306,12 @@
  <section id="soldering-sec" class="content-section">
     <div>
         <h2 id="soldering">Soldering</h2>
-        <p>The only components that require soldering upon receiving the assembled board are the two XLR3 audio jacks.</p>
+        <p>Upon receiving the boards, the components that still require hand-soldering are the four bottom-side <b>47 µF 63 V electrolytic capacitors (C2, C3, C7, C8)</b> and the <b>XLR3 audio jack (J1)</b>.</p>
 
         <div>
             <ul>
-                <li>Place the audio jacks in their designated positions on the PCB (J1, J2), as shown in the images below</li>
+                <li>Fit the four electrolytic capacitors in their bottom-side positions (C2, C3, C7, C8), observing polarity carefully</li>
+                <li>Place the XLR3 jack in its designated position on the PCB (J1)</li>
                 <li>Solder all pins with appropriate solder and flux</li>
                 <li>Verify all connections are mechanically and electrically sound</li>
                 <li>Proceed to Testing and Verification</li>
@@ -275,17 +320,17 @@
 
         <div style="display: flex; gap: 2rem; justify-content: center; align-items: flex-start; margin: 2rem 2rem; flex-wrap: wrap;">
             <figure style="flex: 1; min-width: 300px; max-width: 45%; margin: 0;">
-                <img src="img/Nosey_MEMS_soldering_1.jpeg" 
-                     alt="XLR3 jack placement on Nosey MEMS PCB" 
+                <img src="img/Nosey_MEMS_Mk2_soldering_1.jpeg"
+                     alt="Bottom-side electrolytic and XLR3 placement on Nosey MEMS Mk2 PCB"
                      style="width: 100%; height: auto; border-radius: 8px;">
                 <figcaption style="text-align: center; margin-top: 0.5rem;">
-                    <strong>Figure 3a.</strong> XLR3 jack placement on the PCB (J1: L-Nasality, J2: R-Orality).
+                    <strong>Figure 3a.</strong> Bottom-side electrolytic capacitor and XLR3 jack placement.
                 </figcaption>
             </figure>
 
             <figure style="flex: 1; min-width: 300px; max-width: 45%; margin: 0;">
-                <img src="img/Nosey_MEMS_soldering_2.jpeg" 
-                     alt="Properly soldered XLR3 joints on Nosey MEMS" 
+                <img src="img/Nosey_MEMS_Mk2_soldering_2.jpeg"
+                     alt="Completed solder joints on Nosey MEMS Mk2"
                      style="width: 100%; height: auto; border-radius: 8px;">
                 <figcaption style="text-align: center; margin-top: 0.5rem;">
                     <strong>Figure 3b.</strong> Completed solder joints. All pins should have smooth, shiny solder fillets.
@@ -293,10 +338,8 @@
             </figure>
         </div>
 
-        <p><em><strong>Note:</strong> The silkscreen label "Nosality" visible in the images was corrected to "Nasality" in the design files, but this typo was caught after the boards were sent to manufacturing. Future revisions will display the correct spelling.</em></p>
-
         <div>
-            <p>This concludes the soldering process. If all went well, the Nosey MEMS is now ready for testing. For optional modifications, see <a href="#mods">Modifications</a> below. Otherwise, proceed to <a href="#testing">Testing</a>.</p>
+            <p>This concludes the soldering process. If all went well, the Nosey MEMS Mk2 is now ready for testing. For optional modifications, see <a href="#mods">Modifications</a> below. Otherwise, proceed to <a href="#testing">Testing</a>.</p>
         </div>
 
     </div>
@@ -306,17 +349,17 @@
     <h2 id="mods">Modifications</h2>
     <p><em>The following modifications are optional and may be added in future revisions of this guide.</em></p>
 
-    <h3>Jackless Nosey MEMS</h3>
-    <p>If sourcing XLR3 jacks is difficult or not necessary for the application, audio cables can be soldered directly to the PCB pads. Additional strain relief should be added (e.g., zip-ties to the 3D-printed housing) to prevent damage to solder joints from cable movement.</p>
+    <h3>Jackless Nosey MEMS Mk2</h3>
+    <p>If sourcing an XLR3 jack is difficult or not necessary for the application, audio cables can be soldered directly to the PCB pads. Additional strain relief should be added (e.g., zip-ties to the 3D-printed mount) to prevent damage to solder joints from cable movement.</p>
     <p><em>Figure and 3D-printed cable adapter design to be added.</em></p>
 
     <h3>Shield to Ground Connection</h3>
-    <p>Connecting the cable shield to ground is a debated topic in audio applications. This modification will be tested and documented in a future update with measured results showing any impact on noise floor and interference rejection.</p>
+    <p>Connecting the cable shield to ground is a debated topic in audio applications. On Mk2 this is selectable by jumping JP1. This modification will be tested and documented in a future update with measured results showing any impact on noise floor and interference rejection.</p>
     <p><em>Measurement results and implementation guide to be added.</em></p>
 
     <h3>5V Operation</h3>
-    <p>For advanced users only. The Nosey MEMS can potentially be modified to operate on 5V instead of the standard phantom power supply. This requires circuit modifications and is only recommended for users experienced with analog audio circuit design. Details can be found in the schematics file.</p>
-    <p><em>Schematic modifications and performance comparison to be added.</em></p>
+    <p>For advanced users only. By default the Mk2 runs the OPA1652 from the 18V Zener-clamped rail and supplies the MEMS via the PJ71K30SC (3.3V) LDO. To run on a 5V rail instead, fit the 5V LDO variant (PJ71K50SC), cut the traces between pads 1–2 on both JP2 and JP3, and solder across pads 2–3. This routes a 5V supply to the op-amp and a 2.5V (V/2) bias to the MEMS. Only recommended for users experienced with analog audio circuit design. Details can be found in the schematics file.</p>
+    <p><em>Read the modification notes on the schematic carefully before attempting.</em></p>
 
 </section>
 
@@ -325,21 +368,17 @@
 
                     <section id="testing" class="content-section">
                         <h2>Testing & Verification</h2>
-                        <p>How to test your completed device to ensure proper functionality.</p>
+                        <p>How to test your completed board to ensure proper functionality. Repeat the whole process for each of the two boards.</p>
                         <div>
-                            <p> 
-
-                            </p>
                                  <ul>
-                                    <li>First, visually inspect the board. Is it neat? Is it clean? Are all the parts neatly placed and soldered? Are any crooked? Are all component making electrical contact? Does any component look damaged? Are all the polarized components (diodes, capacitors, amps) correctly oriented?</li>
-                                    <li>Second, <b>turn off Phantom power (48V)</b> and, provdided the board is up to standard, connect <b>only one</b> of the two channels the Nosey MEMS to an audio capture card with a shielded balanced XLR cable. Verify there are no sounds coming from the Nosey MEMS, as it is not yet powered.</li>
+                                    <li>First, visually inspect the board. Is it neat? Is it clean? Are all the parts neatly placed and soldered? Are any crooked? Are all components making electrical contact? Does any component look damaged? Are all the polarized components (diodes, electrolytic capacitors, op-amp) correctly oriented?</li>
+                                    <li>Second, <b>turn off Phantom power (48V)</b> and, provided the board is up to standard, connect the Nosey MEMS Mk2 to an audio capture card with a shielded balanced XLR cable. Verify there are no sounds coming from the board, as it is not yet powered.</li>
                                     <li>Third, <b>set the gain to zero</b> before turning on Phantom power (48V).</li>
-                                    <li>Fourth, <b>slowly increase the grain</b>, making sure there is no feedback or irregular sounds, try talking into the MEMS microphone of the connected channel. You should hear yourself clearly, with no distorsion, delay or artefacts.</li>
-                                    <li>Fifth, repeat the process for the other channel and verify that both are working correctly and equally well.</li>
-                                    <li>Sixth, congratulations on your working Nosey MEMS!</li>
+                                    <li>Fourth, <b>slowly increase the gain</b>, making sure there is no feedback or irregular sounds, and try talking into the MEMS microphone. You should hear yourself clearly, with no distortion, delay or artefacts.</li>
+                                    <li>Fifth, repeat the process for the second board and verify that both work correctly and equally well — matched behaviour between the two boards is what makes the nasalance ratio meaningful.</li>
+                                    <li>Sixth, congratulations on your working pair of Nosey MEMS Mk2 boards!</li>
                                 </ul>
-                                <p>If the verification process was successful, move on to <a href="calibration.html#hero">calibration of the device</a>, or to <a href="3dprinting.html#hero">3D Printing the parts</a>. If the verification failed, try <a href="#troubleshooting">Troubleshooting</a>.</p>
-
+                                <p>If the verification process was successful, move on to <a href="calibration.html#hero">calibration of the devices</a>, or to <a href="3dprinting.html#hero">3D Printing the parts</a>. If the verification failed, try <a href="#troubleshooting">Troubleshooting</a>.</p>
                         </div>
                     </section>
 
@@ -352,7 +391,7 @@
                             <ul>
                                 <li>Check overall board cleanliness and neatness of component placement</li>
                                 <li>Verify all components are properly seated, straight, and free from physical damage</li>
-                                <li>Confirm correct orientation of all polarized components (diodes, electrolytic capacitors, ICs)</li>
+                                <li>Confirm correct orientation of all polarized components (diodes, electrolytic capacitors, the op-amp)</li>
                                 <li>Look for any bent pins, damaged traces, or signs of thermal stress</li>
                             </ul>
                         </div>
@@ -360,11 +399,12 @@
                         <div>
                             <h3>PCB Electrical Inspection</h3>
                             <ul>
-                                <li>Verify phantom power is enabled and measures 48V at the XLR connector (Test Pad TP4)</li>
-                                <li>Measure Vcc voltage supply — should read approx. 18V (Test Pad TP5)</li>
-                                <li>Measure V/2 bias voltage — should read half of Vcc, approx. 9V (Test Pad TP6)</li>
-                                <li>Check for any output signal from the op-amps (Test Pads TP1 for L/Nasality and TP2 for R/Orality channel)</li>
-                                <li>Inspect all solder joints for proper flow and electrical contact—look for cold joints or bridged connections</li>
+                                <li>Verify phantom power is enabled and measures 48V at the XLR connector</li>
+                                <li>Measure the regulated supply rail — it should read approximately 18V (Zener-clamped) at the supply test pads (T_Vcc1 / T_Vcc2)</li>
+                                <li>Measure the V/2 virtual ground — it should read about half of the supply, approximately 9V (T_V/2)</li>
+                                <li>Confirm the MEMS supply rail is at 3.3V (PJ71K30SC LDO output)</li>
+                                <li>Check for an output signal from the op-amp at the audio test pad (T_Sig), referenced to ground (T_Gnd)</li>
+                                <li>Inspect all solder joints for proper flow and electrical contact — look for cold joints or bridged connections</li>
                                 <li>Examine PCB traces for damage, lifted pads, or unintended continuity between nets</li>
                                 <li>Use a multimeter in continuity mode to check for shorts between power rails and ground</li>
                             </ul>
@@ -373,12 +413,12 @@
                         <div>
                             <h3>Audio Chain Verification</h3>
                             <ul>
-                                <li>Confirm audio interface is powered on, connected to computer, and recognized by the system</li>
+                                <li>Confirm the audio interface is powered on, connected to the computer, and recognized by the system</li>
                                 <li>Test XLR cables and connectors with a known-good microphone to rule out cable faults</li>
-                                <li>Verify Nosey MEMS nasometer is properly seated and making good electrical contact</li>
-                                <li>Set audio interface gain to minimum (0dB) and ensure channel is unmuted</li>
+                                <li>Verify the Nosey MEMS Mk2 is properly seated and making good electrical contact</li>
+                                <li>Set audio interface gain to minimum (0 dB) and ensure the channel is unmuted</li>
                                 <li>Confirm correct input/output routing in your DAW or REW software</li>
-                                <li>Check that phantom power is reaching the microphone through the entire signal chain (Test Pad TP4)</li>
+                                <li>Check that phantom power is reaching the microphone through the entire signal chain</li>
                             </ul>
                         </div>
                     </section>
@@ -387,7 +427,7 @@
 
                 <!-- Sidebar placeholder -->
                 <aside class="sidebar" id="sidebar-placeholder"></aside>
-                
+
             </div>
         </div>
     </main>

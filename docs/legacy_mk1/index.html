@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosey MEMS - Project Documentation</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="shared/load-components.js"></script>
+</head>
+<body>
+    <!-- Navigation placeholder -->
+    <div id="navbar-placeholder" style="position: sticky; top: 0; z-index: 100;"></div>
+
+    <section id="hero" class="hero">
+        <div class="container">
+            <h1><b>Nosey MEMS</b></h1>
+            <p class="ipa-subtitle"><i>/ˈnɔɪzi miːmz/</i></p>
+            <p><b>A Fully Open-Source Nasometer</b></p>
+
+            <p>Open-source Stereo MEMS Microphone Preamp
+                <br>Hardware for the Nosey project.</p> 
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="content-grid">
+                <div class="main-column">
+                    
+                    <section id="overview" class="content-section">
+                        <h2>Project Overview</h2>
+                        <div>
+                        <p><span class="status-badge in-progress">In Early Stage of Development</span></p>
+                        
+                        <p><b>Nosey MEMS</b> is a <b>fully open-source nasometer</b>, a device used to measure the acoustic energy simultaneously from both the oral and nasal cavities produced during speech. This type of study is most commonly studied within the field of <a href="https://sheffield.ac.uk/linguistics/home/all-about-linguistics/about-website/branches-linguistics/phonetics/what-do-phoneticians-study/articulatory">Articulatory Phonetics</a>.</p>
+
+            <div style="display: flex; gap: 2rem; justify-content: center; align-items: flex-start; margin: 2rem 2rem; flex-wrap: wrap;">
+            <figure style="flex: 1; min-width: 300px; max-width: 45%; margin: 0;">
+                <img src="img/Nosey_MEMS_hero-shot_front.jpeg" 
+                     alt="Nosey MEMS front side" 
+                     style="width: 100%; height: auto; border-radius: 8px;">
+
+            </figure>
+
+            <figure style="flex: 1; min-width: 300px; max-width: 45%; margin: 0;">
+                <img src="img/Nosey_MEMS_hero-shot_back.jpeg" 
+                     alt="Nosey MEMS back side" 
+                     style="width: 100%; height: auto; border-radius: 8px;">
+
+            </figure>
+        </div>
+
+                        <p><b>Nosey MEMS</b> is the first direct upgrade of Nosey <a href="#ref2">[1]</a>, the open-source hardware for acoustic nasalance, developed by <a href="https://github.com/phoneticslab/nosey">Lancaster University Phonetics lab</a>.</p>
+
+                        
+                        <h3>Author</h3>
+                            <!-- 24 September 2025 -->
+                            <p><b>Circuit, PCB and webpage design by Ivan Porupski, 2025.</b></p>
+                        
+                        </div>
+
+                        <h3>Key Features</h3>
+                        <ul>
+                            <li>Open source hardware</li>
+                            <li>Dual MEMS (micro-electromechanical systems) microphone system using NA-FFA381-A10-1 sensors</li>
+                            <li>Frequency response: 100 Hz - 10 kHz* with flat response 20 Hz - 3 kHz**</li>
+                            <li>Low-noise dual OPA1652 amplifiers in differential configuration</li>
+                            <li>Powered by standard +48V phantom power via two XLR3 jacks</li>
+                            <li>Compact PCB design fits new Nosey-MEMS 3D-printed housing</li>
+                            <li>Optional 18V/5V power configuration via jumper settings</li>
+                            <li>Open-source KiCad 9.0 schematic, PCB, and assembly files available</li>
+                        </ul>
+                        <ol style="list-style-type: none; padding-left: 0; margin-top: 0.5em;">
+                            <li>* This is a typical MEMS microphone frequency response. Frequency response will always vary from microphone to microphone, even within the same production batch. Calibration is highly suggested.</li>
+                            <li>** The NA-FFA381-A10-1 used has a flat frequency response between 20 Hz and 3 kHz, with increased sensitivity at higher frequencies.</li>
+                        </ol>
+
+                        <div>
+                            <img src="img/Nosey_MEMS_mic_Mockup_v2.png" alt="Nosey MEMS Mic PCB model" width="800">
+                        </div>
+
+
+                        <h3>Circuit Overview</h3>
+
+                        <ul>
+                            <li>Circuit is designed to be simple, low-cost yet effective as a nasalance instrument. </li>
+
+                            <li>The amplifier circuit was inspired by 
+                                <a href="#ref2">[2]</a>, 
+                                <a href="#ref3">[3]</a>, 
+                                <a href="#ref4">[4]</a>.
+                            </li>
+
+                            <li>Adopts a MEMS microphone instead of a traditional condenser, removing the need for a 1 GΩ input bias resistor—simplifying PCB manufacturing and still achieving respectable audio bandwidth.</li>
+
+                            <li>The NA-FFA381-A10-1 is a high SNR, small package, single-ended output top port analog MEMS microphone, consists of a MEMS sensor and a low noise level ASIC.</li>
+
+                            <li>Dual OPA1652 low-noise amplifiers are employed in a differential configuration: one channel as a unity-gain non-inverting stage for the hot signal, the other as a unity-gain inverting stage for the cold. This topology leverages the OPA1652’s low current consumption and excellent noise performance to provide a high-fidelity, fully balanced input stage.</li>
+
+                            <li>Power supply consists of a bank of capacitors with an 18V Zener diode with filtering as the supply for the OPA1652, employing virtual ground (V/2) using a voltage divider. The power supply is passed through the LDO PJ71k30 to provide a stable 3V supply for the MEMS microphone.</li>
+
+                        </ul>
+
+
+                        <h3>PCB Overview</h3>
+
+                        <ul>
+                            <li>Small form factor, slides into the new Nosey-MEMS 3D printed model.</li>
+
+                            <li>The MEMS microphones are placed 40mm apart, offering symmetric distance from both the nose and mouth, while also ensuring consistency between recordings.</li>
+
+                            <li>Two XLR3 jacks run from the side down, staying out of the way and allowing easier cabel management, while providing ample structural support.</li>
+
+                            <li>The metal shielding connects to the PCB via the XLR3's ground connection in the bottom right screw hole and via the PCB's two mounting points.
+
+                            <li>QR code linking to this site for easy access to documentation.</li>
+
+                            <li>The tall electrolytic capacitor's topology was used to create a barrier between the two MEMS microphones, reducing cross-contamination.</li>
+
+                            <li>Convenient Test Pads TP1-2 for audio signals and TP3-6 for power supply.</li>
+
+                            <li>Optional shorting of Shielding to Ground by jumping JP1.</li>
+
+                            <li>Optional switching from 18V power to 5V power setup by jumping JP2 and JP3. Default is 18V.</li>
+                        </ul>
+
+                        <h3>3D Model Overview</h3>
+                        <ul>
+                            <li>To avoid confusion, this particular 3D models set is called as the Nosey-MEMS 3D models.</li>
+                            <li>A new, fully 3D-printable Baffle, Handle and Housing models.</li>
+
+                            <li>The microphone preamp PCB slides into the new design, followed by two screws on the top corners and four screws for the two XLR3 jacks, securely mounting it to the 3D printed parts.</li>
+
+                            <li>Bottom camera-stand mount(?).</li>
+
+                            <li>Open-source Nosey-MEMS 3D model files COMING SOON.</li>
+
+
+                        </ul>
+
+                            <!-- <li>[WORK IN PROGRESS] The PCBA has been ordered! (07oct2025)</li> -->
+                            <!-- <li>[WORK IN PROGRESS] The PCB hasn't even existed yet! (24sep2025)</li> -->
+
+                            
+                        <div class="disclaimer">
+                            <h4>Safety Disclaimer</h4>
+
+                            <p>All work with these electronics is done entirely at your own discretion and risk. It is your sole responsibility to ensure you possess the necessary skills, knowledge, and safety equipment for working with electrical components. The author and any contributors are not liable for any direct, indirect, incidental, or consequential damages.</p>
+                        </div>
+
+                    </section>
+
+
+<section id="downloads" class="content-section">
+    <h2>Downloads</h2>
+    <p>Project files, documentation, and resources will be available here as development progresses.</p>
+
+    <h3>Available Files</h3>
+
+    <h4><a href="https://github.com/porupski/Nosey_MEMS/tree/main/KiCad_files"><strong>Repo/KiCad_files</strong></a></h4>
+    <ul>
+        <li>[KiCad 9] Schematic</li>
+        <li>[KiCad 9] PCB Layout (unmelted and melted)</li>
+        <li>[JLCPCB] PCB gerber production .zip ready for assembly (with melted tracks!)</li>
+    </ul>
+
+    <h4><a href="https://github.com/porupski/Nosey_MEMS/tree/main/REW_files"><strong>Repo/REW_files</strong></a></h4>
+    <ul>
+        <li>[REW] Frequency response curves of both MEMS micrphones (preliminary test)</li>
+    </ul>
+
+    <h4>Other Resources</h4>
+    <ul>
+        <li>[STL] 3D printable Baffle, Handle and Casing models (Coming Later)</li>
+        <li>Documentation (<a href="https://porupski.github.io/Nosey_MEMS/">This page</a>)</li>
+    </ul>
+</section>
+
+
+                    <section id="manufacture" class="content-section">
+                        
+                        <h2>Manufacture and Assembly</h2>
+                        <h3 class="guide-link">
+                        <a href="manufacture.html#hero">[Manufacturing Guide →]</a>
+                        </h3>
+
+
+                        <div>
+                        <p>
+                            After quality control, inside the GitHub repo there will be a .zip file available for PCB assembly manufacturing (currently, only for JLCPCB).
+                        </p>
+
+
+                        </div>
+
+
+                        <div class="disclaimer">
+                            <h4>Manufacturer Recommendation Disclaimer</h4>
+                            <p>The recommended manufacturer is the one the author has used successfully. This is not an endorsement. Please choose a manufacturer based on your own research and needs.</p>
+                        </div>
+                    </section>
+
+
+
+                    <section id="calibration" class="content-section">
+                        <h2>Calibration</h2>
+
+                        <h3 class="guide-link">
+                        <a href="calibration.html#hero">[Calibration Guide →]</a>
+                        </h3>
+
+                        <p>Given the MEMS microphones come pre-assembled for us, a calibration test is recommended to make sure the device provides accurate measurements.</p>
+
+                        <p>
+                            <a href="https://www.roomeqwizard.com/">Room EQ Wizard</a> (REW) is an open-source software package for acoustical measurements. It is commonly used for measuring acoustic of a room, frequency response of speakers and microphones, but also (pre)amplifier circuits.
+                        </p>
+                        <p>Available for Windows, macOS and Linux.</p>
+                        
+                        <h3>General steps for calibrating Nosey MEMS:</h3>
+                        <ul>
+                            <li>Connect both Nosey MEMS channels to an audio card (pre-calibrated with REW, Phantom Power +48V on) and verify the microphones are working.</li>
+                            <li>Mount Nosey MEMS about 5cm from a loudspeaker (ideally calibrated studio monitor).</li>
+                            <li>Run REW frequency sweep for each microphone.</li>
+                            <li>Compare the frequency response curves to verify if the microphones match up sufficiently for your reasearch purposes.</li>
+                            <li>Optional: Use these response curves to filter your raw audio before nasalance calculations.</li>
+
+                        </ul>
+                    </section>
+
+                    
+                    <section id="3dprinting" class="content-section">
+                        
+                        <h2>3D Printing</h2>
+
+                        <h3 class="guide-link">
+                        <a href="3dprinting.html#hero">[3D Printing Guide →]</a>
+                        </h3>
+
+                        <div>
+                            <p>A new version of the Nosey-MEMS 3D-printable models will be available, tailored to accept the assembled Nosey MEMS PCB.</p>
+
+                            <p>As the 3D models develop, printing settings will be published here, along with any other notes and/or suggestions.</p>
+
+                            <p>PETG is recommended for durability and better water resistance.</p>
+
+                        </div>
+
+                    </section>
+
+<!-- 
+                    <section id="specifications" class="content-section">
+                        <h2>Technical Specifications</h2>
+                        
+                        <table class="spec-table">
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Value</th>
+                                    <th>Units</th>
+                                    <th>Conditions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Sensitivity</td>
+                                    <td>-??</td>
+                                    <td>dBV/Pa</td>
+                                    <td>1 kHz, 1 Pa</td>
+                                </tr>
+                                <tr>
+                                    <td>SNR</td>
+                                    <td>??</td>
+                                    <td>dB SPL</td>
+                                    <td>1 kHz, A-weighted</td>
+                                </tr>
+                                <tr>
+                                    <td>THD</td>
+                                    <td>??</td>
+                                    <td>%</td>
+                                    <td>1 kHz, 100 dB SPL</td>
+                                </tr>
+                                <tr>
+                                    <td>Supply Voltage</td>
+                                    <td>+48</td>
+                                    <td>V</td>
+                                    <td>Phantom power</td>
+                                </tr>
+                                <tr>
+                                    <td>Current Consumption</td>
+                                    <td>like 6mA?</td>
+                                    <td>mA</td>
+                                    <td>Normal operation</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <section id="documentation" class="content-section">
+                        <h2>[LOREM IPSO onwards] Documentation</h2>
+                        
+                        <h3>Getting Started</h3>
+                        <p>This section will contain setup instructions, wiring diagrams, and basic usage examples once the project is further along.</p>
+
+                        <h3>Code Examples</h3>
+                        <p>Sample Arduino code for interfacing with the microphone:</p>
+                        <div class="code-block">
+// Code examples will be added here
+// #include &lt;I2S.h&gt;
+// 
+// void setup() {
+//   // Initialize I2S interface
+//   // Configure sampling parameters
+// }
+                        </div>
+
+                        <h3>Mechanical Drawings</h3>
+                        <p>CAD files and mechanical specifications will be available for download once finalized.</p>
+                    </section> 
+                    
+                    -->
+
+
+                    <section id="references" class="content-section">
+                        <div>
+                            <h2>References</h2>
+                            <ol style="list-style: none; padding-left: 0;">
+                                <li id="ref1" style="margin-bottom: 0.5em;">[1] Dewhurst, M., Collins, J., Lo, J. J., Alderton, R., & Kirkham, S. (2025). Nosey: Open-source hardware for acoustic nasalance. arXiv preprint <a href="https://arxiv.org/pdf/2505.23339">arXiv:2505.23339</a>. <a href="https://www.isca-archive.org/interspeech_2025/dewhurst25_interspeech.pdf"><b>Nosey InterSpeech2025 Paper [PDF]</b></a></li>
+                                <li id="ref2" style="margin-bottom: 0.5em;">[2] Self, D. (2023). Small signal audio design. Focal Press.</li>
+                                <li id="ref3" style="margin-bottom: 0.5em;">[3] DJJules' Instructable <a href="https://www.instructables.com/True-Condenser-OPA-Mics/">True Condenser OPA Mics</a></li>
+                                <li id="ref4" style="margin-bottom: 0.5em;">[4] Texas Instruments. (2013). An applications guide for op amps (Application Report SNOA621C). Texas Instruments <a href="https://www.ti.com/lit/an/snoa621c/snoa621c.pdf">Link to PDF</a></li>
+                                <li id="ref5" style="margin-bottom: 0.5em;">[5] STMicroelectronics. (2017). Tutorial for MEMS microphones (Application Note AN4426). STMicroelectronics. <a href="https://www.st.com/resource/en/application_note/dm00103199-tutorial-for-mems-microphones-stmicroelectronics.pdf">Link to PDF</a></li>
+                                <li id="ref6" style="margin-bottom: 0.5em;">[6] Infineon Technologies. (2018). MEMS microphone mechanical & acoustical implementation (Application Note AN557). Infineon Technologies. <a href="https://www.mouser.com/pdfDocs/Infineon-AN557_MEMS_microphone_mechanical_and_acoustical_implementation-AN-v01_01-EN.pdf">Link to PDF</a></li>
+                            </ol>
+
+                            <p>A lot about microphone circuits can be found on <a href="https://groups.io/g/MicBuilders/">groups.io/g/MicBuilders/</a>.</p>
+                        </div>
+                    </section>
+
+                </div>
+
+                <!-- Sidebar placeholder -->
+                <aside class="sidebar" id="sidebar-placeholder"></aside>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer placeholder -->
+    <div id="footer-placeholder"></div>
+
+</body>
+</html>

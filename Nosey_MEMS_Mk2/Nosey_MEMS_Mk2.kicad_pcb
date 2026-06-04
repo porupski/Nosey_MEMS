@@ -8029,7 +8029,6 @@
 		)
 		(embedded_fonts no)
 		(model "/home/ivan/Projekti/Elektronika/Academic/Nosey/3D Model NC3MAAH-0.stp"
-			(hide yes)
 			(offset
 				(xyz 4 -18 12.5)
 			)

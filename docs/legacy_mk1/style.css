@@ -1,0 +1,463 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: #e2e8f0;
+    background: #1a202c;
+}
+
+/* ==================== NAVBAR ==================== */
+.navbar {
+    background: rgba(45, 55, 72, 0.8);
+    backdrop-filter: blur(12px);
+    color: white;
+    padding: 0.75rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    border-bottom: 1px solid #4a5568;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.nav-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #63b3ed;
+    padding: 0.5rem 0;
+}
+
+/* Apply the branding styles to the link element */
+.nav-brand-link {
+    /* Make the <a> tag behave like a block/div for easier styling and clicking */
+    display: inline-block; 
+    /* Remove the default underline */
+    text-decoration: none; 
+    
+    /* Inherit the styles from the .nav-brand you already had */
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #63b3ed;
+    padding: 0.5rem 0; 
+    
+    /* Smooth transition for the size growth effect */
+    transition: transform 0.2s ease-in;
+}
+
+/* Ensure the link looks the same in all its states */
+.nav-brand-link:visited, 
+.nav-brand-link:focus, 
+.nav-brand-link:active {
+    /* Force the color to remain the same */
+    color: #63b3ed;
+    /* Force the underline to remain gone */
+    text-decoration: none;
+}
+
+/* The Subtle Effect: Grow a little in size on hover/focus */
+.nav-brand-link:hover,
+.nav-brand-link:focus {
+    /* Scale it up by 2% (adjust as needed) */
+    transform: scale(1.01);
+    /* No change in color or decoration! */
+}
+
+
+.nav-links {
+    display: flex;
+    gap: 0.75rem;
+    list-style: none;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    padding: 0.4rem 0.9rem;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    color: #cbd5e0;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.nav-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+.github-icon {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+}
+
+/* Mobile navbar styles */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .nav-links {
+        width: 100%;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .nav-links li {
+        width: 100%;
+    }
+    
+    .nav-links a {
+        width: 100%;
+        justify-content: center;
+        padding: 0.5rem 0.9rem;
+    }
+}
+
+/* ==================== LAYOUT ==================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==================== HERO SECTION ==================== */
+.hero {
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+    border-bottom: 1px solid #4a5568;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0;
+    font-weight: 300;
+    color: #63b3ed;
+}
+
+.hero p.ipa-subtitle {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+    color: #cbd5e0;
+}
+
+/* ==================== MAIN CONTENT ==================== */
+.main-content {
+    padding: 4rem 0;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.content-section {
+    background: #2d3748;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    margin-bottom: 2rem;
+    border: 1px solid #4a5568;
+}
+
+.content-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #63b3ed;
+    border-bottom: 2px solid #63b3ed;
+    padding-bottom: 0.5rem;
+}
+
+.content-section h3 {
+    font-size: 1.4rem;
+    margin: 1.5rem 0 1rem 0;
+    color: #63b3ed;
+    border-bottom: 2px solid #63b3ed;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+    width: fit-content;
+}
+
+.content-section h3.guide-link {
+    color: #FFA500;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 1.5rem 0 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-left: 4px solid #FFA500;
+    padding-left: 10px;
+    display: inline-block;
+    border-bottom: none; /* Remove the blue underline */
+    padding-bottom: 0; /* Remove the bottom padding */
+}
+
+.content-section h3.guide-link a {
+    color: #FFA500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.content-section h3.guide-link a:hover {
+    color: #ffbf40;
+    text-decoration: underline;
+}
+
+.content-section p {
+    color: #cbd5e0;
+    margin-bottom: 1rem;
+}
+
+.content-section ul {
+    color: #cbd5e0;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.content-section a {
+    color: #63b3ed;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.content-section a:hover {
+    color: #90cdf4;
+    text-decoration: underline;
+}
+
+/* ==================== DISCLAIMER ==================== */
+.disclaimer {
+    background: #744210;
+    border-left: 4px solid #d69e2e;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.disclaimer h4 {
+    color: #fbd38d;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.disclaimer h4::before {
+    content: "⚠️";
+    font-size: 1.2rem;
+}
+
+.disclaimer p {
+    color: #fed7aa;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* ==================== SIDEBAR ==================== */
+.sidebar {
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+}
+
+.sidebar-section {
+    background: #2d3748;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    margin-bottom: 1.5rem;
+    border: 1px solid #4a5568;
+}
+
+.sidebar-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #63b3ed;
+}
+
+.sidebar-section h3.guide-link-solo {
+    color: #FFA500;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 1.5rem 0 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    /* border-left: 4px solid #FFA500; */
+    /* padding-left: 10px; */
+    display: inline-block;
+}
+
+.sidebar-section p {
+    color: #cbd5e0;
+    font-size: 0.9rem;
+}
+
+.sidebar-list {
+    list-style: none;
+}
+
+.sidebar-list li {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-list a {
+    color: #90cdf4;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.sidebar-list a:hover {
+    color: #63b3ed;
+    text-decoration: underline;
+}
+
+/* ==================== TABLES ==================== */
+.spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    background: #1a202c;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.spec-table th,
+.spec-table td {
+    border: 1px solid #4a5568;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.spec-table th {
+    background: #4a5568;
+    font-weight: 600;
+    color: #e2e8f0;
+}
+
+.spec-table td {
+    color: #cbd5e0;
+}
+
+.spec-table caption {
+    caption-side: top;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #e2e8f0;
+    text-align: left;
+    margin-bottom: 0.5rem;
+}
+
+/* ==================== FIGURES ==================== */
+figure {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+figure figcaption {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #e2e8f0;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+/* ==================== CODE BLOCKS ==================== */
+.code-block {
+    background: #1a202c;
+    color: #e2e8f0;
+    padding: 1rem;
+    border-radius: 8px;
+    font-family: 'Monaco', 'Menlo', monospace;
+    overflow-x: auto;
+    margin: 1rem 0;
+    border: 1px solid #4a5568;
+}
+
+/* ==================== STATUS BADGES ==================== */
+.status-badge {
+    display: inline-block;
+    background: #48bb78;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.status-badge.in-progress {
+    background: #ed8936;
+}
+
+.status-badge.planned {
+    background: #9f7aea;
+}
+
+/* ==================== SCROLL MARGIN ==================== */
+section[id],
+h1[id],
+h2[id],
+h3[id] {
+    scroll-margin-top: 80px;
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 768px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .sidebar {
+        position: static;
+    }
+}
