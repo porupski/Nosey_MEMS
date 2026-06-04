@@ -258,13 +258,26 @@
                         <h3 id="assembly">Assembly Instructions</h3>
                         <p>After confirming the BOM file, the component placements (CPL) need to be verified next. Sometimes the orientation of components may be wrong. Carefully inspect and make sure all polarities are correct. The assembly placement for the verified run is shown in <a href="#pcb_assembly_placement">Figure 1</a>.</p>
 
-                        <figure>
-                            <img id="pcb_assembly_placement"
-                                src="img/fab_Nosey_MEMS_Mk2_PCBA_placement.png"
-                                alt="Nosey MEMS Mk2 PCB top assembly component placements"
-                                width="300">
-                            <figcaption>Figure 1. Component orientation and placement visualization during the ordering process.</figcaption>
-                        </figure>
+                        <div style="display: flex; gap: 2rem; justify-content: center; align-items: flex-start; margin: 2rem 2rem; flex-wrap: wrap;">
+                            <figure style="flex: 1; min-width: 300px; max-width: 45%; margin: 0;">
+                                <img id="pcb_assembly_placement"
+                                    src="img/fab_Nosey_MEMS_Mk2_PCBA_placement_1.png"
+                                    alt="Nosey MEMS Mk2 placement preview at upload, with parts still missing"
+                                    style="width: 100%; height: auto; border-radius: 8px;">
+                                <figcaption style="text-align: center; margin-top: 0.5rem;">
+                                    <strong>Figure 1a.</strong> Placement preview at upload — some parts are not yet shown, so this view alone isn't enough to confirm against.
+                                </figcaption>
+                            </figure>
+
+                            <figure style="flex: 1; min-width: 300px; max-width: 45%; margin: 0;">
+                                <img src="img/fab_Nosey_MEMS_Mk2_PCBA_placement_2.png"
+                                    alt="Nosey MEMS Mk2 placement after the manufacturer processed the files, all parts placed"
+                                    style="width: 100%; height: auto; border-radius: 8px;">
+                                <figcaption style="text-align: center; margin-top: 0.5rem;">
+                                    <strong>Figure 1b.</strong> After processing (via the "confirm production files" option) — all components are placed and orientations verified correct.
+                                </figcaption>
+                            </figure>
+                        </div>
 
                         <div class="disclaimer">
                             <h4>NOTE:</h4>
